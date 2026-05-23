@@ -402,8 +402,10 @@ function navigateToSection(hash) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
+    e.stopPropagation();
     const href = this.getAttribute('href');
     window.location.hash = href;
+    navigateToSection(href);
   });
 });
 
