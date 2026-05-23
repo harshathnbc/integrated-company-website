@@ -147,7 +147,7 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1100;
   background: rgba(240, 244, 248, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
