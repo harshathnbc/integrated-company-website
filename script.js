@@ -288,7 +288,8 @@ const menuOverlay = document.getElementById('menu-overlay');
 const contactForm = document.getElementById('corporate-contact-form');
 const successMessage = document.getElementById('success-message');
 
-let currentLang = localStorage.getItem('preferredLang') || 'en';
+const storedLang = localStorage.getItem('preferredLang');
+let currentLang = ['en', 'ar'].includes(storedLang) ? storedLang : 'en';
 
 // Set Copyright Year
 if (copyrightYear) {
@@ -301,7 +302,9 @@ function applyTranslations(lang) {
   elements.forEach(element => {
     const key = element.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
-      element.innerHTML = translations[lang][key];
+      element.textContent = translations[lang][key];
+    } else {
+      console.warn(`Missing translation: "${key}" for lang: "${lang}"`);
     }
   });
 
@@ -320,8 +323,12 @@ function applyTranslations(lang) {
 }
 
 // Toggle language handler
+let langSwitchInProgress = false;
 if (langToggleBtn) {
   langToggleBtn.addEventListener('click', () => {
+    if (langSwitchInProgress) return;
+    langSwitchInProgress = true;
+
     currentLang = currentLang === 'en' ? 'ar' : 'en';
     localStorage.setItem('preferredLang', currentLang);
     
@@ -350,7 +357,8 @@ if (langToggleBtn) {
       // Animate mask fading out
       mask.style.opacity = '0';
       setTimeout(() => {
-        document.body.removeChild(mask);
+        if (mask.parentNode) mask.parentNode.removeChild(mask);
+        langSwitchInProgress = false;
       }, 250);
     }, 250);
   });
@@ -362,7 +370,9 @@ applyTranslations(currentLang);
 
 // ==================== SINGLE PAGE APPLICATION NAVIGATION ====================
 function navigateToSection(hash) {
+  const validSections = ['home', 'saudi', 'senegal', 'universal', 'contact'];
   const cleanHash = hash ? hash.replace('#', '') : 'home';
+  if (!validSections.includes(cleanHash)) return;
   const targetId = `${cleanHash}-section`;
   const targetSection = document.getElementById(targetId);
   
@@ -421,14 +431,21 @@ if (window.location.hash) {
   navigateToSection('home');
 }
 
-// Navbar Scrolled Glass Visual State Change
+// Navbar Scrolled Glass Visual State Change (throttled)
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-  if (mainNavbar) {
-    if (window.scrollY > 50) {
-      mainNavbar.classList.add('scrolled');
-    } else {
-      mainNavbar.classList.remove('scrolled');
-    }
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      if (mainNavbar) {
+        if (window.scrollY > 50) {
+          mainNavbar.classList.add('scrolled');
+        } else {
+          mainNavbar.classList.remove('scrolled');
+        }
+      }
+      scrollTicking = false;
+    });
+    scrollTicking = true;
   }
 });
 
@@ -464,6 +481,12 @@ if (menuOverlay) {
   menuOverlay.addEventListener('click', closeMobileMenu);
 }
 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navbarLinks && navbarLinks.classList.contains('active')) {
+    closeMobileMenu();
+  }
+});
+
 
 // Background is kept simple and clean as requested by the user.
 
@@ -474,34 +497,35 @@ if (contactForm) {
     e.preventDefault();
     
     // Capture values
-    const name = document.getElementById('form-name').value;
-    const email = document.getElementById('form-email').value;
-    const company = document.getElementById('form-company').value;
-    const subject = document.getElementById('form-subject').value;
-    const message = document.getElementById('form-message').value;
+    const name = document.getElementById('form-name')?.value || '';
+    const email = document.getElementById('form-email')?.value || '';
+    const company = document.getElementById('form-company')?.value || '';
+    const subject = document.getElementById('form-subject')?.value || '';
+    const message = document.getElementById('form-message')?.value || '';
     
-    // Simulate high-security server upload and animation delay
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = currentLang === 'ar' ? 'جاري الإرسال وتشفير الطلب...' : 'Encrypting & Sending...';
-    
+    // Build mailto link with form data
+    const mailtoSubject = encodeURIComponent(`Website Inquiry: ${subject}`);
+    const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\nMessage:\n${message}`);
+    const mailtoLink = `mailto:info@integrated-equipment.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+    // Open email client
+    window.location.href = mailtoLink;
+
+    // Show success message
+    const submitBtn = contactForm.querySelector('.btn-primary');
+    if (submitBtn) submitBtn.disabled = true;
+
+    if (successMessage) {
+      successMessage.classList.add('show');
+    }
+
+    // Reset form and re-enable
     setTimeout(() => {
-      // Show glassy success slide overlay inside card
+      contactForm.reset();
+      if (submitBtn) submitBtn.disabled = false;
       if (successMessage) {
-        successMessage.classList.add('show');
+        successMessage.classList.remove('show');
       }
-      
-      // Auto close/reset after 5 seconds
-      setTimeout(() => {
-        if (successMessage) {
-          successMessage.classList.remove('show');
-        }
-        contactForm.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      }, 6000);
-      
-    }, 1500);
+    }, 6000);
   });
 }
