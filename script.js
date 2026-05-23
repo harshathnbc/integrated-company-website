@@ -407,16 +407,16 @@ function navigateToSection(hash) {
   });
 }
 
-// BULLETPROOF DIRECT CLICK HANDLERS: Register explicit click events on all page anchors 
-// to prevent browser crashes or intercept failures on elements inside anchors.
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    const href = this.getAttribute('href');
-    window.location.hash = href;
-    navigateToSection(href);
-  });
+// BULLETPROOF DELEGATED CLICK HANDLER: Uses event delegation on document body
+// to reliably capture clicks/taps on all anchor links, including inside
+// position:fixed mobile nav drawers where individual listeners can fail.
+document.body.addEventListener('click', function (e) {
+  const anchor = e.target.closest('a[href^="#"]');
+  if (!anchor) return;
+  e.preventDefault();
+  const href = anchor.getAttribute('href');
+  window.location.hash = href;
+  navigateToSection(href);
 });
 
 // Hashchange Event listener for SPA routing
