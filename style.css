@@ -1673,6 +1673,117 @@ html[dir="rtl"] .footer-links a:hover {
     gap: 1rem;
     text-align: center;
   }
+
+  /* ==================== RTL MOBILE ALIGNMENT ==================== */
+
+  /* Hero section - RTL text alignment on mobile */
+  html[dir="rtl"] .hero-bar-content {
+    text-align: center;
+  }
+
+  html[dir="rtl"] .hero-tagline {
+    justify-content: center;
+  }
+
+  html[dir="rtl"] .hero-desc {
+    text-align: center;
+  }
+
+  /* Split sections - stack content properly in RTL */
+  html[dir="rtl"] .saudi-split,
+  html[dir="rtl"] .senegal-split,
+  html[dir="rtl"] .universal-split {
+    direction: rtl;
+  }
+
+  html[dir="rtl"] .saudi-content,
+  html[dir="rtl"] .senegal-content,
+  html[dir="rtl"] .universal-content {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .saudi-content h3,
+  html[dir="rtl"] .senegal-content h3,
+  html[dir="rtl"] .universal-content h3,
+  html[dir="rtl"] .saudi-content p,
+  html[dir="rtl"] .senegal-content p,
+  html[dir="rtl"] .universal-content p {
+    text-align: right;
+  }
+
+  /* Feature lists - flip icon/text direction */
+  html[dir="rtl"] .saudi-feature-list li {
+    flex-direction: row-reverse;
+  }
+
+  /* Equipment and sector cards - centered so RTL OK */
+
+  /* Distribution cards - RTL alignment */
+  html[dir="rtl"] .dist-card-inner h3,
+  html[dir="rtl"] .dist-card-inner p {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .dist-tag {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .dist-features li {
+    flex-direction: row-reverse;
+  }
+
+  /* Contact info cards - flip icon + text order */
+  html[dir="rtl"] .info-card {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  html[dir="rtl"] .info-block h3 {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .info-details h4,
+  html[dir="rtl"] .info-details p {
+    text-align: right;
+  }
+
+  /* Contact form - RTL alignment */
+  html[dir="rtl"] .contact-wrapper {
+    direction: rtl;
+  }
+
+  html[dir="rtl"] .form-title,
+  html[dir="rtl"] .form-desc {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .form-input,
+  html[dir="rtl"] .form-textarea {
+    text-align: right;
+  }
+
+  /* Footer RTL */
+  html[dir="rtl"] .footer-logo-col {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .footer-col h4 {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .footer-links a {
+    text-align: right;
+  }
+
+  html[dir="rtl"] .footer-contact-item {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  /* Mobile menu - RTL hamburger position */
+  html[dir="rtl"] .mobile-menu-btn {
+    order: -1;
+  }
 }
 
 @media (max-width: 600px) {
