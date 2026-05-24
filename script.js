@@ -136,7 +136,8 @@ const translations = {
     legal_terms: "Terms of Service",
     footer_addr: "King Salman Road, Al Hasa, Saudi Arabia",
     footer_saudi: "Saudi",
-    footer_uae: "UAE"
+    footer_uae: "UAE",
+    skip_link: "Skip to main content"
   },
   ar: {
     nav_brand: "الشركة المتكاملة",
@@ -269,7 +270,8 @@ const translations = {
     legal_terms: "شروط الخدمة وسرية المعلومات",
     footer_addr: "طريق الملك سلمان، الأحساء، المملكة العربية السعودية",
     footer_saudi: "السعودية",
-    footer_uae: "الإمارات"
+    footer_uae: "الإمارات",
+    skip_link: "تجاوز إلى المحتوى الرئيسي"
   }
 };
 
