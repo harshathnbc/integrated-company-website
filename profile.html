@@ -911,6 +911,98 @@
       padding-top: 1.25rem;
     }
 
+    /* Values grid for Executive Summary bottom */
+    .values-block {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      padding-top: 1rem;
+    }
+    .values-block h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 0.85rem;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 0.4rem;
+    }
+    .values-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .value-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 0.75rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+    }
+    .value-card h5 {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+    .value-card p {
+      font-size: 0.68rem;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+    }
+
+    /* Card Photo Containers for Pages 3, 4, 5 */
+    .equip-card-photo {
+      width: 100%;
+      height: 95px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 0.6rem;
+      border: 1px solid var(--color-border);
+    }
+    .equip-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .equip-specs {
+      margin-top: auto;
+      border-top: 1px dashed var(--color-border);
+      padding-top: 0.4rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--color-accent-gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .supply-card-photo {
+      width: 100%;
+      height: 110px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 0.6rem;
+      border: 1px solid var(--color-border);
+    }
+    .supply-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .alliance-prod-photo {
+      width: 100%;
+      height: 95px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 0.6rem;
+      border: 1px solid var(--color-border);
+    }
+    .alliance-prod-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     /* ==================== BILINGUAL FLIP FLOW ==================== */
     body.lang-ar .cover-badge-top { letter-spacing: 0; }
@@ -1177,6 +1269,25 @@
           </li>
         </ul>
       </div>
+
+      <!-- Core Operational Values Block (NEW to fill space on Page 2) -->
+      <div class="values-block">
+        <h4 id="s1-val-title">Core Operational Principles</h4>
+        <div class="values-row">
+          <div class="value-card">
+            <h5 id="s1-val1-head">Vision 2030 Support</h5>
+            <p id="s1-val1-desc">Active localization and industrial content support.</p>
+          </div>
+          <div class="value-card">
+            <h5 id="s1-val2-head">Logistical Security</h5>
+            <p id="s1-val2-desc">Authorized direct factory pipeline logistics.</p>
+          </div>
+          <div class="value-card">
+            <h5 id="s1-val3-head">Asset Reliability</h5>
+            <p id="s1-val3-desc">Preventive maintenance & genuine OEM parts.</p>
+          </div>
+        </div>
+      </div>
       
       <footer class="page-footer">
         <span id="f-copyright">Integrated Company · Corporate Profile</span>
@@ -1212,6 +1323,9 @@
       <div class="equip-grid">
         <!-- Grader -->
         <div class="equip-card">
+          <div class="equip-card-photo">
+            <img src="motor_grader.png" alt="Motor Grader">
+          </div>
           <div class="equip-card-top">
             <div class="equip-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="16" cy="17" r="2" /><circle cx="20" cy="17" r="2" /><circle cx="5" cy="17" r="2" /><line x1="9" y1="18" x2="13" y2="15" /><path d="M5 15h1v-2l8-3h2v4h4v3" /><rect x="11" y="6" width="4" height="4" rx="1" /><line x1="13" y1="6" x2="13" y2="10" /></svg>
@@ -1219,10 +1333,14 @@
             <h4 id="s2-eq1-head">Motor Grader</h4>
           </div>
           <p id="s2-eq1-desc">Engineered for absolute leveling precision in road building and large scale architectural site preparation.</p>
+          <div class="equip-specs" id="s2-eq1-spec">Blade: 14ft | Power: 220 HP</div>
         </div>
         
         <!-- Dozer -->
         <div class="equip-card">
+          <div class="equip-card-photo">
+            <img src="crawler_dozer.png" alt="Crawler Dozer">
+          </div>
           <div class="equip-card-top">
             <div class="equip-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="14" width="13" height="4" rx="2" /><path d="M19 18v-5l2-1" /><path d="M14 15l5 1" /><path d="M6 14V8h6v6" /><rect x="8" y="9.5" width="2.5" height="2.5" /><path d="M4 15H2v-3" /></svg>
@@ -1230,10 +1348,14 @@
             <h4 id="s2-eq2-head">Crawler Dozer</h4>
           </div>
           <p id="s2-eq2-desc">Massive pushing power combined with heavy tracks for earthmoving across harsh desert environments.</p>
+          <div class="equip-specs" id="s2-eq2-spec">Weight: 49.5 Tons | Blade: 18.5 m³</div>
         </div>
         
         <!-- Backhoe -->
         <div class="equip-card">
+          <div class="equip-card-photo">
+            <img src="devlon_backhoe.jpeg" alt="Backhoe Loader">
+          </div>
           <div class="equip-card-top">
             <div class="equip-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="14" cy="16" r="3" /><circle cx="6" cy="17" r="2" /><path d="M6 15h11v-4H12V7H8v4H6z" /><path d="M6 14H2l-1-3h2l1 2" /><path d="M17 14h2l2.5-3.5 0.5-3.5-1.5 1" /><path d="M19 7l1.5-1.5" /></svg>
@@ -1241,10 +1363,14 @@
             <h4 id="s2-eq3-head">Backhoe Loader</h4>
           </div>
           <p id="s2-eq3-desc">Unmatched versatility combining a strong front loader bucket and high-reach rear digging arm.</p>
+          <div class="equip-specs" id="s2-eq3-spec">Dig Depth: 5.4m | Engine: 105 HP</div>
         </div>
         
         <!-- Excavator -->
         <div class="equip-card">
+          <div class="equip-card-photo">
+            <img src="develon_excavator.png" alt="Heavy Excavator">
+          </div>
           <div class="equip-card-top">
             <div class="equip-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="16" width="12" height="3" rx="1.5" /><path d="M5 16V9h6v3h3v4z" /><path d="M11 11l4-5 3.5 3L20 13" /><path d="M19.5 12.5l1.5 2h-2.5z" /></svg>
@@ -1252,6 +1378,7 @@
             <h4 id="s2-eq4-head">Heavy Excavator</h4>
           </div>
           <p id="s2-eq4-desc">High breakout forces for deep trenching, rock breaking, demolition, and massive bulk earth works.</p>
+          <div class="equip-specs" id="s2-eq4-spec">Weight: 36.8 Tons | Bucket: 2.1 m³</div>
         </div>
       </div>
       
@@ -1306,10 +1433,13 @@
         <img src="senegal_branch.png" alt="Industrial Supply and Polymers">
       </div>
       
-      <!-- Supply Grid -->
+      <!-- Supply Grid (4 cards for perfect layout density) -->
       <div class="supply-grid">
         <!-- Polymers -->
         <div class="supply-card">
+          <div class="supply-card-photo">
+            <img src="hdpe.png" alt="SABIC Polymers">
+          </div>
           <span class="supply-tag" id="s3-tg1">Manufacturing</span>
           <h4 id="s3-sp1-head">SABIC Polymers</h4>
           <p id="s3-sp1-desc">Approved distribution of high-density polyethylene (HDPE) and polypropylene (PP) polymers essential for injection molding and extrusion.</p>
@@ -1319,14 +1449,45 @@
           </ul>
         </div>
         
-        <!-- Lubricants -->
+        <!-- Agri-Nutrients -->
         <div class="supply-card">
+          <div class="supply-card-photo">
+            <img src="sabic_products.png" alt="SABIC Agri-Nutrients">
+          </div>
+          <span class="supply-tag" id="s3-tg2">Agriculture</span>
+          <h4 id="s3-sp2-head">SABIC Agri-Nutrients</h4>
+          <p id="s3-sp2-desc">Approved supply of SABIC's high-nitrogen urea and NPK agricultural fertilizers designed to maximize crop yield in global markets.</p>
+          <ul class="supply-features">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp2-f1">Optimal Soil Enrichment</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp2-f2">High Nitrogen Content</span></li>
+          </ul>
+        </div>
+
+        <!-- Engine Oils -->
+        <div class="supply-card">
+          <div class="supply-card-photo">
+            <img src="petrolube_products.png" alt="PETROLUBE Engine Oils">
+          </div>
           <span class="supply-tag" id="s3-tg3">Industrial Fluids</span>
           <h4 id="s3-sp3-head">PETROLUBE Fluids</h4>
           <p id="s3-sp3-desc">Strategic distribution of PETROLUBE heavy-duty automotive engine oils, gear oils, high-performance grease, and hydraulics.</p>
           <ul class="supply-features">
             <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp3-f1">Extreme Thermal Stability</span></li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp3-f2">Wear Protection System</span></li>
+          </ul>
+        </div>
+
+        <!-- Industrial Lubricants -->
+        <div class="supply-card">
+          <div class="supply-card-photo">
+            <img src="petrolube_products.png" alt="PETROLUBE Industrial Lubricants">
+          </div>
+          <span class="supply-tag" id="s3-tg4">Specialty Lubricants</span>
+          <h4 id="s3-sp4-head">PETROLUBE Lubricants</h4>
+          <p id="s3-sp4-desc">Authorized trading of high-performance specialty lubricants and greases, engineered for heavy machinery operating in extreme conditions.</p>
+          <ul class="supply-features">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp4-f1">Extended Fluid Life</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp4-f2">OEM Approved Standards</span></li>
           </ul>
         </div>
       </div>
@@ -1368,48 +1529,57 @@
       <div class="alliance-grid">
         <!-- Excavator -->
         <div class="alliance-prod-card">
+          <div class="alliance-prod-photo">
+            <img src="develon_excavator.png" alt="Crawler Excavator">
+          </div>
           <h5 id="s4-pr1-name">Crawler Excavator</h5>
-          <p id="s4-pr1-desc">Designed for heavy digging, offering breakout force.</p>
+          <p id="s4-pr1-desc">Heavy-duty crawler excavators featuring high-efficiency engines, advanced hydraulic systems, and robust undercarriages built for major mining, deep trenching, and massive infrastructure developments.</p>
           <div class="alliance-specs-list">
             <div class="alliance-spec-row">
               <span class="alliance-spec-lbl" id="s4-sp-lbl1">Weight</span>
-              <span class="alliance-spec-val">22.5 Tons</span>
+              <span class="alliance-spec-val" id="s4-pr1-sp1">22.5 Tons</span>
             </div>
             <div class="alliance-spec-row">
               <span class="alliance-spec-lbl" id="s4-sp-lbl2">Power</span>
-              <span class="alliance-spec-val">162 HP</span>
+              <span class="alliance-spec-val" id="s4-pr1-sp2">162 HP</span>
             </div>
           </div>
         </div>
         
         <!-- Loader -->
         <div class="alliance-prod-card">
+          <div class="alliance-prod-photo">
+            <img src="develon_loader.png" alt="Wheel Loader">
+          </div>
           <h5 id="s4-pr2-name">Wheel Loader</h5>
-          <p id="s4-pr2-desc">Optimal loading capacity with differentials.</p>
+          <p id="s4-pr2-desc">High-productivity wheel loaders designed with spacious ergonomic cabins, heavy-duty axles, auto-differential locks, and optimized bucket capacities for rapid material handling and bulk stock movement.</p>
           <div class="alliance-specs-list">
             <div class="alliance-spec-row">
               <span class="alliance-spec-lbl" id="s4-sp-lbl3">Capacity</span>
-              <span class="alliance-spec-val">4.5 m³</span>
+              <span class="alliance-spec-val" id="s4-pr2-sp1">4.5 m³</span>
             </div>
             <div class="alliance-spec-row">
               <span class="alliance-spec-lbl" id="s4-sp-lbl4">Power</span>
-              <span class="alliance-spec-val">246 HP</span>
+              <span class="alliance-spec-val" id="s4-pr2-sp2">246 HP</span>
             </div>
           </div>
         </div>
         
         <!-- Dump Truck -->
         <div class="alliance-prod-card">
+          <div class="alliance-prod-photo">
+            <img src="develon_dump_truck.png" alt="Dump Truck">
+          </div>
           <h5 id="s4-pr3-name">Dump Truck</h5>
-          <p id="s4-pr3-desc">High-payload trucks offering continuous contact.</p>
+          <p id="s4-pr3-desc">Articulated off-road haulers featuring active 6x6 drive systems, high-durability high-tensile steel tipping bodies, and advanced transmission systems to deliver maximum payload transportation across rugged terrain.</p>
           <div class="alliance-specs-list">
             <div class="alliance-spec-row">
               <span class="alliance-spec-lbl" id="s4-sp-lbl5">Payload</span>
-              <span class="alliance-spec-val">28.0 Tons</span>
+              <span class="alliance-spec-val" id="s4-pr3-sp1">28.0 Tons</span>
             </div>
             <div class="alliance-spec-row">
               <span class="alliance-spec-lbl" id="s4-sp-lbl6">Power</span>
-              <span class="alliance-spec-val">375 HP</span>
+              <span class="alliance-spec-val" id="s4-pr3-sp2">375 HP</span>
             </div>
           </div>
         </div>
@@ -1434,6 +1604,11 @@
       <div class="section-title-block">
         <span class="section-num">05</span>
         <h2 class="section-main-title" id="s5-title">Global Network Directory</h2>
+      </div>
+      
+      <!-- Embedded Global Network Illustration -->
+      <div class="profile-photo-container">
+        <img src="network_map.png" alt="Global Operations Hub Network">
       </div>
       
       <!-- Network directory -->
@@ -1514,14 +1689,12 @@
     
   </div>
 
-  <!-- Translation Engine script -->
   <script>
     const trans = {
       en: {
         label_brand: "Integrated Company",
         label_btn_print: "Print / Save PDF",
         print_tips: "<strong>Pro Tip:</strong> Click Print or press <strong>Ctrl+P</strong>. Set destination to <strong>Save as PDF</strong>, layout <strong>Portrait</strong>, paper size <strong>A4</strong>, margins <strong>None</strong>, and enable <strong>Background graphics</strong>.",
-        
         c_badge: "Saudi Arabia & International",
         c_title: "Integrated Company",
         c_sub: "Corporate Profile",
@@ -1529,86 +1702,97 @@
         c_meta_sector: "Primary Divisions",
         c_meta_sectors_val: "Construction · Industrial · Trading",
         c_meta_doc: "Document ID",
-        
         h_brand: "Integrated Company",
         h_sec_1: "Corporate Overview",
         s1_title: "Executive Summary",
-        s1_desc: "Integrated Company is a premier Saudi corporate delivering top-tier solutions across construction, industrial, and commercial sectors globally. We bridge developing markets with leading international manufacturers to provide unparalleled machinery assets and industrial raw materials.",
+        s1_desc: "Integrated Company is a premier Saudi corporate delivering top-tier engineering and commercial trading solutions across regional construction, industrial, and energy sectors. We bridge developing markets with leading international manufacturers to provide premium machinery assets, authorized petrochemical compounds, and high-performance lubricants backed by complete logistical coverage.",
         s1_st1: "Years Experience",
         s1_st2: "Global Markets",
         s1_st3: "Machinery Models",
         s1_pil_title: "Core Business Pillars",
         s1_pil1_head: "Equipment for Construction & Real Estate",
-        s1_pil1_desc: "Empowering large-scale infrastructure with premium, heavy construction machinery fleet operations and logistics inside the Saudi Kingdom.",
+        s1_pil1_desc: "Empowering large-scale infrastructure with premium, heavy construction machinery fleet operations, site distribution, and certified technical support inside the Saudi Kingdom.",
         s1_pil2_head: "Industrial Material Supply",
-        s1_pil2_desc: "Approved corporate trading and distribution of SABIC polymers, agricultural agri-nutrients, and strategic high-performance engine engineering fluids.",
+        s1_pil2_desc: "Approved corporate trading and regional distribution of SABIC polymers, agricultural granular urea agri-nutrients, and strategic high-performance engine engineering fluids.",
         s1_pil3_head: "International Commercial Pipelines",
-        s1_pil3_desc: "Forging global trading bridges and supplying high-performance machinery across developing markets inside strategic alliances.",
-        
+        s1_pil3_desc: "Forging global trading bridges and supplying high-performance heavy machinery across rapidly developing African markets inside strategic corporate alliances.",
+        s1_val_title: "Core Operational Principles",
+        s1_val1_head: "Vision 2030 Support",
+        s1_val1_desc: "Active support of Saudi localization targets, local corporate partnerships, and transfer of advanced technical skills to national talent.",
+        s1_val2_head: "Logistical Security",
+        s1_val2_desc: "Direct-factory authorized supply corridors and customs pipelines ensuring absolute cargo integrity from production floor to job site.",
+        s1_val3_head: "Asset Reliability",
+        s1_val3_desc: "Dedicated preventive maintenance support, direct genuine OEM spare parts supply, and a certified local network of field technicians.",
         h_sec_2: "Construction Division",
         s2_title: "Heavy Equipment Operations",
         s2_desc: "We specialize in the strategic supply, distribution, and commercial trading of heavy construction machinery, providing high-end project support to infrastructure developers and real estate contractors across the region.",
         s2_eq1_head: "Motor Grader",
-        s2_eq1_desc: "Engineered for absolute leveling precision in road building and large scale architectural site preparation.",
+        s2_eq1_desc: "High-precision motor graders engineered for absolute leveling, fine road grading, ditching, and slope preparation across complex highway infrastructure.",
+        s2_eq1_spec: "Blade: 14ft | Power: 220 HP",
         s2_eq2_head: "Crawler Dozer",
-        s2_eq2_desc: "Massive pushing power combined with heavy tracks for earthmoving across harsh desert environments.",
+        s2_eq2_desc: "Massive crawler bulldozers engineered to deliver exceptional tractive effort and pushing power for hot desert sand earthmoving and site clearance.",
+        s2_eq2_spec: "Weight: 49.5 Tons | Blade: 18.5 m\u00b3",
         s2_eq3_head: "Backhoe Loader",
-        s2_eq3_desc: "Unmatched versatility combining a strong front loader bucket and high-reach rear digging arm.",
+        s2_eq3_desc: "Highly versatile multi-use utility loader vehicles combining high-reach backhoe excavation arms with powerful front loader operations.",
+        s2_eq3_spec: "Dig Depth: 5.4m | Engine: 105 HP",
         s2_eq4_head: "Heavy Excavator",
-        s2_eq4_desc: "High breakout forces for deep trenching, rock breaking, demolition, and massive bulk earth works.",
-        
+        s2_eq4_desc: "High-breakout crawler excavators engineered with advanced hydraulics for deep trenching, rock breaking, major bulk excavations, and quarry extraction.",
+        s2_eq4_spec: "Weight: 36.8 Tons | Bucket: 2.1 m\u00b3",
         h_sec_3: "Industrial Supply",
         s3_title: "Industrial Material Trading",
         s3_desc: "Integrated Company operates as a premier logistics pipeline, serving industrial sectors with authorized distribution of petrochemical materials, chemical fertilizers, and premium lubrication fluids.",
         s3_auth_lbl: "Strategic Partners",
         s3_tg1: "Manufacturing",
         s3_sp1_head: "SABIC Polymers",
-        s3_sp1_desc: "Approved distribution of high-density polyethylene (HDPE) and polypropylene (PP) polymers essential for injection molding and extrusion.",
+        s3_sp1_desc: "Authorized distribution of SABIC's high-density polyethylene (HDPE), low-density polyethylene (LDPE), and polypropylene (PP) polymers essential for injection molding and extrusion.",
         s3_sp1_f1: "High Tensile Strength",
         s3_sp1_f2: "Chemical Resistance",
         s3_tg2: "Agriculture",
         s3_sp2_head: "SABIC Agri-Nutrients",
-        s3_sp2_desc: "Approved supply of SABIC's high-nitrogen urea agricultural fertilizers designed to maximize crop yield in global markets.",
-        s3_sp2_f1: "High Solubility Rates",
-        s3_sp2_f2: "Urea & Chemical Blends",
+        s3_sp2_desc: "Approved supply of SABIC's high-nitrogen urea and NPK agricultural fertilizers designed to maximize crop yield in global markets.",
+        s3_sp2_f1: "Optimal Soil Enrichment",
+        s3_sp2_f2: "High Nitrogen Content",
         s3_tg3: "Industrial Fluids",
         s3_sp3_head: "PETROLUBE Fluids",
         s3_sp3_desc: "Strategic distribution of PETROLUBE heavy-duty automotive engine oils, gear oils, high-performance grease, and hydraulics.",
         s3_sp3_f1: "Extreme Thermal Stability",
         s3_sp3_f2: "Wear Protection System",
-        s3_tg4: "Commercial Pipelines",
-        s3_sp4_head: "Global Logistics Pipeline",
-        s3_sp4_desc: "Actively expanding our international supply corridors, consolidating raw materials trading pipelines inside developing nations.",
-        s3_sp4_f1: "Bilateral Supply Chains",
-        s3_sp4_f2: "Constantly Growing Catalog",
-        
+        s3_tg4: "Specialty Lubricants",
+        s3_sp4_head: "PETROLUBE Lubricants",
+        s3_sp4_desc: "Authorized trading of high-performance specialty lubricants and greases, engineered for heavy machinery operating in extreme conditions.",
+        s3_sp4_f1: "Extended Fluid Life",
+        s3_sp4_f2: "OEM Approved Standards",
         h_sec_4: "Strategic Alliance",
         s4_title: "Universal Machinery Group",
         s4_sub: "Strategic West African Alliance",
         s4_desc: "Integrated Company holds a strategic shareholding stake inside the Universal Machinery Group. This alliance solidifies our dominance within West Africa's rapid mining, infrastructure, and heavy construction boom. As an authorized distributor, the group offers Doosan (Develon) fleets backed by robust support.",
         s4_pr1_name: "Crawler Excavator",
-        s4_pr1_desc: "Designed for heavy digging, offering breakout force.",
+        s4_pr1_desc: "Heavy-duty crawler excavators featuring high-efficiency engines, advanced hydraulic systems, and robust undercarriages built for major mining, deep trenching, and massive infrastructure developments.",
         s4_sp_lbl1: "Weight",
         s4_sp_lbl2: "Power",
+        s4_pr1_sp1: "22.5 Tons",
+        s4_pr1_sp2: "162 HP",
         s4_pr2_name: "Wheel Loader",
-        s4_pr2_desc: "Optimal loading capacity with differentials.",
+        s4_pr2_desc: "High-productivity wheel loaders designed with spacious ergonomic cabins, heavy-duty axles, auto-differential locks, and optimized bucket capacities for rapid material handling and bulk stock movement.",
         s4_sp_lbl3: "Capacity",
         s4_sp_lbl4: "Power",
+        s4_pr2_sp1: "4.5 m\u00b3",
+        s4_pr2_sp2: "246 HP",
         s4_pr3_name: "Dump Truck",
-        s4_pr3_desc: "High-payload trucks offering continuous contact.",
+        s4_pr3_desc: "Articulated off-road haulers featuring active 6x6 drive systems, high-durability high-tensile steel tipping bodies, and advanced transmission systems to deliver maximum payload transportation across rugged terrain.",
         s4_sp_lbl5: "Payload",
         s4_sp_lbl6: "Power",
-        
+        s4_pr3_sp1: "28.0 Tons",
+        s4_pr3_sp2: "375 HP",
         h_sec_5: "Corporate Network",
         s5_title: "Global Network Directory",
         s5_Riyadh_title: "Saudi Arabia Headquarters",
-        s5_Riyadh_desc: "Al Mojil Tower – Level 6,<br>King Salman Road 36341, Al Hasa,<br>Kingdom of Saudi Arabia",
+        s5_Riyadh_desc: "Al Mojil Tower \u2013 Level 6,<br>King Salman Road 36341, Al Hasa,<br>Kingdom of Saudi Arabia",
         s5_Dakar_title: "Senegal Operations Hub",
-        s5_Dakar_desc: "INTEGRATED AFRICA COMPANY – SUARL<br>Villa N° 72, Cité Asecna, Ouakam,<br>Dakar, Sénégal",
+        s5_Dakar_desc: "INTEGRATED AFRICA COMPANY \u2013 SUARL<br>Villa N\u00b0 72, Cit\u00e9 Asecna, Ouakam,<br>Dakar, S\u00e9n\u00e9gal",
         s5_closing_text: "Connect with our business development team in Al Hasa or Dakar to discover shared trading & supply opportunities.",
         s5_ch1_lbl: "Corporate Email",
         s5_ch2_lbl: "Direct Phone Line",
-        
         bc_brand: "Integrated Company",
         bc_sub: "Corporate Profile",
         bc_intro: "Delivering fully integrated machinery trading, industrial supply pipelines, and raw materials distribution across global markets.",
@@ -1618,45 +1802,52 @@
         label_brand: "الشركة المتكاملة",
         label_btn_print: "طباعة / حفظ PDF",
         print_tips: "<strong>نصيحة مهمة:</strong> اضغط طباعة أو <strong>Ctrl+P</strong>. حدد الوجهة <strong>حفظ بتنسيق PDF</strong>، التخطيط <strong>عمودي</strong>، حجم الورق <strong>A4</strong>، الهوامش <strong>بلا</strong>، وفعّل <strong>الرسومات الخلفية</strong>.",
-        
         c_badge: "المملكة العربية السعودية ودولياً",
         c_title: "الشركة المتكاملة",
         c_sub: "الملف التعريفي للمؤسسة",
         c_tag: "حلول متكاملة لتوريد المعدات الثقيلة، التجارة الصناعية، وتوزيع المواد الخام والبتروكيماويات",
         c_meta_sector: "الأقسام الرئيسية",
-        c_meta_sectors_val: "الإنشاءات · التوريد الصناعي · التجارة",
+        c_meta_sectors_val: "الإنشاءات \u00b7 التوريد الصناعي \u00b7 التجارة",
         c_meta_doc: "معرف المستند",
-        
         h_brand: "الشركة المتكاملة",
         h_sec_1: "نظرة عامة على الشركة",
         s1_title: "الملخص التنفيذي",
-        s1_desc: "تعتبر الشركة المتكاملة شركة سعودية رائدة تقدم حلولاً لوجستية وهندسية عالية المستوى عبر قطاعات الإنشاءات والتوريد الصناعي والتجاري على مستوى العالم. نحن نربط الأسواق النامية بكبار المصنعين الدوليين لتوفير أفضل الآلات الثقيلة والمواد الخام الصناعية.",
+        s1_desc: "تعتبر الشركة المتكاملة واحدة من أبرز المؤسسات السعودية الرائدة في تقديم الحلول اللوجستية وتوريد الآلات والمواد الخام عبر قطاعات التشييد، التوريدات الصناعية، والتبادل التجاري دولياً. ينصب تركيزنا على بناء خطوط إمداد متكاملة تربط الأسواق النامية بنخبة المصنعين العالميين لتأمين المعدات الثقيلة والمواد البتروكيماوية والمغذيات الزراعية بأعلى معايير الكفاءة التشغيلية والدعم الفني.",
         s1_st1: "سنوات الخبرة",
         s1_st2: "الأسواق العالمية",
         s1_st3: "طرازات الآلات المتاحة",
         s1_pil_title: "الركائز الأساسية للمجموعة",
         s1_pil1_head: "معدات التشييد والعقارات",
-        s1_pil1_desc: "تمكين مشاريع البنية التحتية الكبرى من خلال عمليات أسطول الآلات الثقيلة وتوريد المعدات داخل المملكة العربية السعودية.",
+        s1_pil1_desc: "تمكين مشاريع البنية التحتية الكبرى والقطاع العقاري في المملكة بأحدث أساطيل المعدات الثقيلة مع توفير خدمات لوجستية ومساندة فنية متكاملة ومستمرة.",
         s1_pil2_head: "التوريدات والمواد الصناعية",
-        s1_pil2_desc: "التوزيع والتجارة المعتمدة لبوليمرات سابك، المغذيات الزراعية والأسمدة، والزيوت الهندسية عالية الأداء من بترولوب.",
+        s1_pil2_desc: "التوزيع والتجارة المعتمدة دولياً لبوليمرات سابك البلاستيكية، والأسمدة النيتروجينية الزراعية، والزيوت الهندسية الصناعية من بترولوب.",
         s1_pil3_head: "قنوات التجارة الدولية",
-        s1_pil3_desc: "بناء جسور التبادل التجاري وتوريد الآلات المتقدمة للأسواق الواعدة والنامية من خلال تحالفات استراتيجية.",
-        
+        s1_pil3_desc: "تأمين قنوات تجارية لتصدير وتوريد المعدات والمواد الأساسية للأسواق النامية والواعدة في أفريقيا من خلال تحالفات دولية استراتيجية.",
+        s1_val_title: "المبادئ التشغيلية الأساسية",
+        s1_val1_head: "دعم رؤية 2030",
+        s1_val1_desc: "دعم المحتوى المحلي وتوطين الكفاءات التقنية وتمكين المنشآت الوطنية.",
+        s1_val2_head: "أمن الإمداد اللوجستي",
+        s1_val2_desc: "قنوات إمداد مباشرة ومعتمدة تضمن سلامة الشحنات وسرعة تسليمها لموقع العمل.",
+        s1_val3_head: "موثوقية الأصول",
+        s1_val3_desc: "برامج صيانة وقائية مخصصة وقطع غيار أصلية وشبكة مهندسين معتمدين.",
         h_sec_2: "قسم الإنشاءات",
         s2_title: "عمليات المعدات الثقيلة",
         s2_desc: "نحن متخصصون في التوريد والتجارة الاستراتيجية لآلات البناء الثقيلة، ونقدم دعماً لوجستياً متقدماً لمطوري البنية التحتية والمقاولين في المنطقة.",
         s2_eq1_head: "ممهدة الطرق (Grader)",
-        s2_eq1_desc: "مصممة لتحقيق دقة متناهية في تسوية الأسطح وتمهيد الطرق وإعداد المواقع المعمارية الكبرى.",
+        s2_eq1_desc: "ممهدات طرق عالية الدقة مصممة خصيصاً للتسوية والتمهيد الدقيق وإنشاء المنحدرات في الطرق السريعة الكبرى.",
+        s2_eq1_spec: "الشفرة: 14 قدمًا | القوة: 220 حصان",
         s2_eq2_head: "جرافة مجنزرة (Dozer)",
-        s2_eq2_desc: "قوة دفع جبارة مع جنازير فولاذية ثقيلة لنقل التربة وتمهيد التضاريس في البيئات الصحراوية القاسية.",
+        s2_eq2_desc: "جرافات مجنزرة عملاقة تقدم قوة سحب هائلة لنقل التربة وتكسير الصخور وتمهيد الأراضي في البيئات الرملية القاسية.",
+        s2_eq2_spec: "الوزن: 49.5 طن | سعة الشفرة: 18.5 م\u00b3",
         s2_eq3_head: "لودر حفار (Backhoe)",
-        s2_eq3_desc: "مرونة تشغيلية فائقة تجمع بين مغرفة التحميل الأمامية وذراع الحفر الخلفية عالية المدى.",
+        s2_eq3_desc: "لوادر حفارة متعددة الاستخدامات فائقة المرونة تجمع بين ذراع حفر خلفية ومغرفة تحميل أمامية للأعمال الخدمية المتنوعة.",
+        s2_eq3_spec: "عمق الحفر: 5.4 م | المحرك: 105 حصان",
         s2_eq4_head: "حفار ثقيل (Excavator)",
-        s2_eq4_desc: "قوى هيدروليكية هائلة لعمليات الحفر العميق، وتكسير الصخور، والهدم، ونقل التربة الجماعي.",
-        
+        s2_eq4_desc: "حفارات ثقيلة هيدروليكية ذات قوة كسر استثنائية للحفر العميق وتكسير الصخور والهدم وتجهيز مقالع الحجارة الكبرى.",
+        s2_eq4_spec: "الوزن: 36.8 طن | المغرفة: 2.1 م\u00b3",
         h_sec_3: "التوريد الصناعي",
         s3_title: "تجارة المواد الصناعية",
-        s3_desc: "تعمل الشركة المتكاملة كقناة إمداد لوجستية رائدة، تخدم القطاعات الصناعية من خلال التوزيع المعتمد للمواد البتروكيماوية، الأسمدة الزراعية، والزيوت الصناعية.",
+        s3_desc: "تعمل الشركة كشريك لوجستي وتجاري معتمد للمصانع، لتوفر البوليمرات البتروكيماوية، المغذيات والأسمدة الزراعية، والزيوت الهندسية ومضادات التآكل للقطاعات التجارية دولياً.",
         s3_auth_lbl: "الشركاء الاستراتيجيين",
         s3_tg1: "التصنيع",
         s3_sp1_head: "بوليمرات سابك",
@@ -1665,47 +1856,50 @@
         s3_sp1_f2: "مقاومة كيميائية ممتازة",
         s3_tg2: "الزراعة",
         s3_sp2_head: "مغذيات سابك الزراعية",
-        s3_sp2_desc: "توريد معتمد لأسمدة اليوريا الزراعية والنيتروجينية من سابك والمصممة خصيصاً لزيادة إنتاجية المحاصيل.",
-        s3_sp2_f1: "معدلات ذوبان عالية",
-        s3_sp2_f2: "مركبات يوريا كيميائية متطورة",
+        s3_sp2_desc: "توريد معتمد للأسمدة النيتروجينية واليوريا الزراعية عالية الجودة لزيادة إنتاجية المحاصيل في الأسواق العالمية.",
+        s3_sp2_f1: "إثراء ممتاز للتربة",
+        s3_sp2_f2: "محتوى نيتروجين عالي",
         s3_tg3: "السوائل الصناعية",
-        s3_sp3_head: "زيوت بترولوب الفنية",
-        s3_sp3_desc: "توزيع استراتيجي لزيوت محركات بترولوب الشاقة، وزيوت التروس، والشحوم الصناعية، والأنظمة الهيدروليكية.",
+        s3_sp3_head: "سوائل بترولوب",
+        s3_sp3_desc: "توزيع استراتيجي لزيوت المحركات الثقيلة وزيوت التروس والتروس الصناعية الهيدروليكية من بترولوب وبترومين.",
         s3_sp3_f1: "استقرار حراري فائق",
-        s3_sp3_f2: "أنظمة متطورة لمنع الاحتكاك",
-        s3_tg4: "قنوات التبادل التجاري",
-        s3_sp4_head: "خطوط الإمداد اللوجستي",
-        s3_sp4_desc: "توسيع قنوات الإمداد الدولية باستمرار لربط المصانع والأسواق العالمية وتوريد المواد الخام للبلدان النامية.",
-        s3_sp4_f1: "سلاسل إمداد ثنائية مرنة",
-        s3_sp4_f2: "كتالوج منتجات متنامي باستمرار",
-        
+        s3_sp3_f2: "نظام متطور لحماية التآكل",
+        s3_tg4: "شحوم ومزلقات متخصصة",
+        s3_sp4_head: "مزلقات بترولوب",
+        s3_sp4_desc: "توريد وتجارة شحوم وزيوت صناعية متخصصة للآلات والمعدات الثقيلة التي تعمل تحت ظروف تشغيل فائقة وصعبة.",
+        s3_sp4_f1: "عمر أطول للسوائل",
+        s3_sp4_f2: "معايير معتمدة من المصنعين",
         h_sec_4: "التحالف الاستراتيجي",
         s4_title: "المجموعة العالمية للآليات",
         s4_sub: "التحالف الاستراتيجي لغرب أفريقيا",
         s4_desc: "تمتلك الشركة المتكاملة حصة استراتيجية في المجموعة العالمية للآليات (Universal Machinery Group). يرسخ هذا التحالف تفوقنا في غرب أفريقيا داخل مجالات التعدين، البنية التحتية، وتوريد الآلات. وبصفتها موزعاً معتمداً، تقدم المجموعة أساطيل ديفرون (Develon) مدعومة بخدمات صيانة وقطع غيار أصلية.",
         s4_pr1_name: "حفار مجنزر (Excavator)",
-        s4_pr1_desc: "مصمم للحفر الشاق، مع قوة كسر هيدروليكية ممتازة.",
+        s4_pr1_desc: "حفارات برتقالية مجنزرة مزودة بأنظمة هيدروليكية متطورة وموفرة للوقود للحفر المدني الضخم وأعمال البنية التحتية.",
         s4_sp_lbl1: "الوزن",
         s4_sp_lbl2: "القوة",
+        s4_pr1_sp1: "22.5 طن",
+        s4_pr1_sp2: "162 حصان",
         s4_pr2_name: "شاحنة تحميل (Loader)",
-        s4_pr2_desc: "سعة تحميل مثالية مع كفاءة تشغيلية ممتازة.",
+        s4_pr2_desc: "لوادر شحن شاقة بسعات تحميل كبيرة ومقصورات قيادة مريحة وأنظمة دفع متقدمة لمناولة المواد السائبة.",
         s4_sp_lbl3: "السعة",
         s4_sp_lbl4: "القوة",
+        s4_pr2_sp1: "4.5 م\u00b3",
+        s4_pr2_sp2: "246 حصان",
         s4_pr3_name: "شاحنة تفريغ (Dump Truck)",
-        s4_pr3_desc: "شاحنات تفريغ مفصلية عملاقة للأوزان الشاقة.",
+        s4_pr3_desc: "شاحنات تفريغ مفصلية عملاقة للأوزان الشاقة وأنظمة الدفع السداسي المتقدمة للنقل التشغيلي المستمر عبر البيئات الوعرة.",
         s4_sp_lbl5: "الحمولة",
         s4_sp_lbl6: "القوة",
-        
+        s4_pr3_sp1: "28.0 طن",
+        s4_pr3_sp2: "375 حصان",
         h_sec_5: "الشبكة الدولية",
         s5_title: "دليل شبكتنا العالمية",
         s5_Riyadh_title: "المقر الرئيسي - المملكة العربية السعودية",
-        s5_Riyadh_desc: "برج المجل – الطابق 6،<br>طريق الملك سلمان 36341، الأحساء،<br>المملكة العربية السعودية",
+        s5_Riyadh_desc: "برج المجل \u2013 الطابق 6،<br>طريق الملك سلمان 36341، الأحساء،<br>المملكة العربية السعودية",
         s5_Dakar_title: "مركز عمليات السنغال",
-        s5_Dakar_desc: "INTEGRATED AFRICA COMPANY – SUARL<br>فيلا رقم 72، حي أسيكنا، واكام،<br>دكار، جمهورية السنغال",
+        s5_Dakar_desc: "INTEGRATED AFRICA COMPANY \u2013 SUARL<br>فيلا رقم 72، حي أسيكنا، واكام،<br>دكار، جمهورية السنغال",
         s5_closing_text: "تواصل مع ممثلي تطوير الاستثمار والتجارة الدولية لاستكشاف سبل التعاون وتوريد الآلات والمواد المتاحة.",
         s5_ch1_lbl: "البريد الإلكتروني",
         s5_ch2_lbl: "قناة الاتصال المباشر",
-        
         bc_brand: "الشركة المتكاملة",
         bc_sub: "الملف التعريفي للمؤسسة",
         bc_intro: "توريد متكامل للمعدات الثقيلة، خطوط الإمداد الصناعي، وتوزيع المواد الخام عبر الأسواق العالمية.",
@@ -1720,7 +1914,7 @@
       
       const elements = {
         'label-brand': 'label_brand',
-        'label-btn-print': 'label_print',
+        'label-btn-print': 'label_btn_print',
         'print-instructions': 'print_tips',
         
         'c-badge': 'c_badge',
@@ -1750,18 +1944,29 @@
         's1-pil2-desc': 's1_pil2_desc',
         's1-pil3-head': 's1_pil3_head',
         's1-pil3-desc': 's1_pil3_desc',
+        's1-val-title': 's1_val_title',
+        's1-val1-head': 's1_val1_head',
+        's1-val1-desc': 's1_val1_desc',
+        's1-val2-head': 's1_val2_head',
+        's1-val2-desc': 's1_val2_desc',
+        's1-val3-head': 's1_val3_head',
+        's1-val3-desc': 's1_val3_desc',
         
         'h-sec-2': 'h_sec_2',
         's2-title': 's2_title',
         's2-desc': 's2_desc',
         's2-eq1-head': 's2_eq1_head',
         's2-eq1-desc': 's2_eq1_desc',
+        's2-eq1-spec': 's2_eq1_spec',
         's2-eq2-head': 's2_eq2_head',
         's2-eq2-desc': 's2_eq2_desc',
+        's2-eq2-spec': 's2_eq2_spec',
         's2-eq3-head': 's2_eq3_head',
         's2-eq3-desc': 's2_eq3_desc',
+        's2-eq3-spec': 's2_eq3_spec',
         's2-eq4-head': 's2_eq4_head',
         's2-eq4-desc': 's2_eq4_desc',
+        's2-eq4-spec': 's2_eq4_spec',
         
         'h-sec-3': 'h_sec_3',
         's3-title': 's3_title',
@@ -1796,14 +2001,20 @@
         's4-pr1-desc': 's4_pr1_desc',
         's4-sp-lbl1': 's4_sp_lbl1',
         's4-sp-lbl2': 's4_sp_lbl2',
+        's4-pr1-sp1': 's4_pr1_sp1',
+        's4-pr1-sp2': 's4_pr1_sp2',
         's4-pr2-name': 's4_pr2_name',
         's4-pr2-desc': 's4_pr2_desc',
         's4-sp-lbl3': 's4_sp_lbl3',
         's4-sp-lbl4': 's4_sp_lbl4',
+        's4-pr2-sp1': 's4_pr2_sp1',
+        's4-pr2-sp2': 's4_pr2_sp2',
         's4-pr3-name': 's4_pr3_name',
         's4-pr3-desc': 's4_pr3_desc',
         's4-sp-lbl5': 's4_sp_lbl5',
         's4-sp-lbl6': 's4_sp_lbl6',
+        's4-pr3-sp1': 's4_pr3_sp1',
+        's4-pr3-sp2': 's4_pr3_sp2',
         
         'h-sec-5': 'h_sec_5',
         's5-title': 's5_title',
@@ -1835,7 +2046,7 @@
       for (let i = 1; i <= 5; i++) {
         const el = document.getElementById('f-copyright' + (i === 1 ? '' : '-' + i));
         if (el) {
-          el.textContent = lang === 'ar' ? 'الشركة المتكاملة · الملف التعريفي للمؤسسة' : 'Integrated Company · Corporate Profile';
+          el.textContent = lang === 'ar' ? 'الشركة المتكاملة \u00b7 الملف التعريفي للمؤسسة' : 'Integrated Company \u00b7 Corporate Profile';
         }
       }
 
@@ -1847,6 +2058,11 @@
 
     document.getElementById('lang-switch-en').addEventListener('click', () => switchLang('en'));
     document.getElementById('lang-switch-ar').addEventListener('click', () => switchLang('ar'));
+
+    // Auto-detect language from URL parameter or default to 'en'
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang') || 'en';
+    switchLang(lang);
   </script>
 </body>
 </html>
