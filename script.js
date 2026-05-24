@@ -137,7 +137,16 @@ const translations = {
     footer_addr: "King Salman Road, Al Hasa, Saudi Arabia",
     footer_saudi: "Saudi",
     footer_uae: "UAE",
-    skip_link: "Skip to main content"
+    skip_link: "Skip to main content",
+    
+    profile_download_badge: "Company Profile",
+    profile_download_title: "Download Company Profile",
+    profile_download_desc: "Get comprehensive information about our services, capabilities, and achievements.",
+    profile_download_en_btn: "Download English Profile",
+    profile_download_ar_btn: "Download Arabic Profile",
+    profile_scan_en_label: "Scan for English",
+    profile_scan_ar_label: "Scan for Arabic",
+    profile_scan_mobile: "Scan to download on mobile"
   },
   ar: {
     nav_brand: "الشركة المتكاملة",
@@ -271,7 +280,16 @@ const translations = {
     footer_addr: "طريق الملك سلمان، الأحساء، المملكة العربية السعودية",
     footer_saudi: "السعودية",
     footer_uae: "الإمارات",
-    skip_link: "تجاوز إلى المحتوى الرئيسي"
+    skip_link: "تجاوز إلى المحتوى الرئيسي",
+    
+    profile_download_badge: "الملف التعريفي للمؤسسة",
+    profile_download_title: "تحميل الملف التعريفي للمؤسسة",
+    profile_download_desc: "احصل على معلومات شاملة حول خدماتنا، وقدراتنا اللوجستية، وإنجازاتنا التشغيلية.",
+    profile_download_en_btn: "تحميل الملف باللغة الإنجليزية",
+    profile_download_ar_btn: "تحميل الملف باللغة العربية",
+    profile_scan_en_label: "امسح لتحميل الملف الإنجليزي",
+    profile_scan_ar_label: "امسح لتحميل الملف العربي",
+    profile_scan_mobile: "امسح لتحميل الملف على الجوال"
   }
 };
 

@@ -1935,3 +1935,203 @@ html[dir="rtl"] .footer-links a:hover {
     padding-top: 0 !important;
   }
 }
+
+/* ==================== DOWNLOAD PROFILE SECTION ==================== */
+.profile-download-block {
+  margin-top: 6rem;
+}
+
+.profile-download-card {
+  background: linear-gradient(135deg, #0c2240 0%, #061120 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3.5rem;
+  align-items: center;
+  box-shadow: 0 20px 45px rgba(6, 17, 32, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glowing backdrop inside the dark card */
+.profile-download-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.profile-download-info {
+  position: relative;
+  z-index: 2;
+}
+
+.profile-download-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-accent-gold);
+  margin-bottom: 1rem;
+}
+
+.profile-download-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.profile-download-desc {
+  font-size: 1.1rem;
+  color: #cbd5e1; /* Silver gray */
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.profile-download-actions {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.profile-download-actions .btn-gold {
+  background: var(--color-accent-gold);
+  color: #0c2240;
+  padding: 0.85rem 1.75rem;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition-fluid);
+  border: 1px solid transparent;
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+  cursor: pointer;
+}
+
+.profile-download-actions .btn-gold:hover {
+  background: #e2c084;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.35);
+}
+
+.profile-download-actions .btn-gold svg {
+  flex-shrink: 0;
+}
+
+.profile-download-qrs {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.qr-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-code-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 0.85rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  transition: var(--transition-fluid);
+}
+
+.qr-code-box:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(197, 160, 89, 0.15);
+}
+
+.qr-code-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.qr-caption {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.qr-main-caption {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.qr-sub-caption {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+/* RTL Support for the Download Section */
+html[dir="rtl"] .profile-download-actions {
+  flex-direction: row;
+}
+
+html[dir="rtl"] .profile-download-qrs {
+  justify-content: flex-start;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+  .profile-download-card {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+  .profile-download-qrs {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-download-card {
+    padding: 2rem 1.5rem;
+  }
+  .profile-download-title {
+    font-size: 2rem;
+  }
+  .profile-download-desc {
+    font-size: 0.95rem;
+  }
+  .profile-download-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .profile-download-actions .btn-gold {
+    justify-content: center;
+    width: 100%;
+  }
+  .profile-download-qrs {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
