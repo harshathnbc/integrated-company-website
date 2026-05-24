@@ -216,9 +216,9 @@
 
     /* ==================== PAGE 1: FRONT COVER ==================== */
     .cover-page {
-      background: linear-gradient(135deg, #09172c 0%, #0d2547 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       padding: 0;
-      color: white;
+      color: var(--color-primary);
       justify-content: center;
       align-items: center;
     }
@@ -241,7 +241,7 @@
       position: absolute;
       width: 150%;
       height: 100px;
-      background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.15), transparent);
+      background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.12), transparent);
       top: 35%;
       left: -25%;
       transform: rotate(-35deg);
@@ -253,7 +253,7 @@
       position: absolute;
       width: 150%;
       height: 60px;
-      background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(25, 61, 119, 0.04), transparent);
       bottom: 25%;
       right: -25%;
       transform: rotate(25deg);
@@ -261,13 +261,13 @@
     }
 
     .cover-badge-top {
-      border: 1px solid rgba(197, 160, 89, 0.4);
+      border: 1px solid rgba(197, 160, 89, 0.5);
       background: rgba(197, 160, 89, 0.08);
       padding: 0.4rem 1.25rem;
       border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 700;
-      color: var(--color-accent-gold-light);
+      color: var(--color-accent-gold-dark);
       text-transform: uppercase;
       letter-spacing: 2px;
       text-align: center;
@@ -290,15 +290,15 @@
     }
 
     .cover-logo-box img {
-      height: 110px;
+      height: 120px;
       width: auto;
-      filter: drop-shadow(0 10px 25px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 8px 20px rgba(12, 34, 64, 0.12));
     }
 
     .cover-title-brand {
       font-size: 2.6rem;
       font-weight: 800;
-      color: white;
+      color: var(--color-primary);
       margin-bottom: 0.5rem;
       letter-spacing: 0.5px;
     }
@@ -306,7 +306,7 @@
     .cover-divider {
       width: 80px;
       height: 4px;
-      background: linear-gradient(90deg, var(--color-accent-gold-light), var(--color-accent-gold));
+      background: linear-gradient(90deg, var(--color-accent-gold-dark), var(--color-accent-gold));
       margin: 1.25rem auto;
       border-radius: 2px;
     }
@@ -314,7 +314,7 @@
     .cover-subtitle {
       font-size: 1.4rem;
       font-weight: 600;
-      color: var(--color-accent-gold-light);
+      color: var(--color-accent-gold-dark);
       text-transform: uppercase;
       letter-spacing: 3px;
       margin-bottom: 1.25rem;
@@ -322,7 +322,7 @@
 
     .cover-tagline {
       font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.7);
+      color: var(--color-text-muted);
       max-width: 480px;
       margin: 0 auto;
       line-height: 1.6;
@@ -334,10 +334,10 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid var(--color-border);
       padding-top: 1.5rem;
       font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--color-text-muted);
       z-index: 10;
     }
 
@@ -356,12 +356,12 @@
 
     .cover-meta-val {
       font-weight: 700;
-      color: var(--color-accent-gold-light);
+      color: var(--color-primary);
     }
 
     /* ==================== CONTENT LAYOUT ELEMENTS ==================== */
     .section-title-block {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .section-num {
@@ -371,21 +371,40 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       display: block;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
     }
 
     .section-main-title {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--color-primary);
       line-height: 1.2;
     }
 
     .intro-paragraph {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: var(--color-text-muted);
-      line-height: 1.6;
-      margin-bottom: 1.75rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Styled Profile Photo frame */
+    .profile-photo-container {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--color-accent-gold);
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .profile-photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* Two Columns */
@@ -400,27 +419,27 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .stat-card {
       background: var(--color-bg-light);
       border: 1px solid var(--color-border);
       border-radius: 12px;
-      padding: 1.25rem 1rem;
+      padding: 1.1rem 0.85rem;
       text-align: center;
     }
 
     .stat-val {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 800;
       color: var(--color-primary-light);
       line-height: 1.2;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
     .stat-txt {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--color-text-muted);
@@ -429,12 +448,12 @@
 
     /* Pillar Box */
     .pillars-block h4 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--color-primary);
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
       border-bottom: 1px solid var(--color-border);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.4rem;
     }
 
     .pillars-list {
@@ -445,39 +464,39 @@
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
     }
 
     .pillars-list li svg {
       color: var(--color-accent-gold-dark);
       flex-shrink: 0;
-      margin-top: 0.2rem;
+      margin-top: 0.15rem;
     }
 
     .pillar-details h5 {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--color-text-dark);
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.1rem;
     }
 
     .pillar-details p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--color-text-muted);
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     /* ==================== PAGE 3: MACHINERY FLEET ==================== */
     .equip-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
     .equip-card {
       border: 1px solid var(--color-border);
-      border-radius: 14px;
-      padding: 1.25rem;
+      border-radius: 12px;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       background: var(--color-bg-light);
@@ -487,13 +506,13 @@
     .equip-card-top {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .equip-icon {
-      width: 44px;
-      height: 44px;
+      width: 36px;
+      height: 36px;
       background: rgba(12, 34, 64, 0.05);
       border: 1px solid rgba(12, 34, 64, 0.08);
       border-radius: 50%;
@@ -501,18 +520,19 @@
       align-items: center;
       justify-content: center;
       color: var(--color-primary);
+      flex-shrink: 0;
     }
 
     .equip-card h4 {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--color-primary);
     }
 
     .equip-card p {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--color-text-muted);
-      line-height: 1.5;
+      line-height: 1.4;
       margin-bottom: auto;
     }
 
@@ -520,16 +540,16 @@
     .brands-badge-row {
       display: flex;
       gap: 1rem;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.25rem;
       background: var(--color-bg-light);
-      padding: 1rem;
-      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
       border: 1px solid var(--color-border);
       align-items: center;
     }
 
     .brands-badge-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--color-primary);
       text-transform: uppercase;
@@ -541,61 +561,61 @@
       background: white;
       border: 1px solid var(--color-border);
       border-radius: 8px;
-      padding: 0.25rem 0.75rem;
+      padding: 0.2rem 0.6rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 40px;
+      height: 36px;
     }
 
     .brands-badge-box img {
-      height: 24px;
+      height: 20px;
       width: auto;
     }
 
     .brands-badge-box svg {
-      height: 22px;
+      height: 18px;
       width: auto;
     }
 
     .supply-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
     .supply-card {
       border: 1px solid var(--color-border);
-      border-radius: 14px;
-      padding: 1.25rem;
+      border-radius: 12px;
+      padding: 1rem;
       background: white;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
     }
 
     .supply-tag {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--color-accent-gold-dark);
       letter-spacing: 0.5px;
       display: block;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
     .supply-card h4 {
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--color-primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       border-bottom: 1px solid var(--color-bg-light);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.4rem;
     }
 
     .supply-card p {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--color-text-muted);
       line-height: 1.4;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
     .supply-features {
@@ -605,11 +625,11 @@
     .supply-features li {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.78rem;
+      gap: 0.4rem;
+      font-size: 0.72rem;
       font-weight: 600;
       color: var(--color-text-dark);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
     }
 
     .supply-features li svg {
@@ -620,62 +640,62 @@
     .alliance-card {
       border: 1px solid var(--color-border);
       background: var(--color-bg-light);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 1.75rem;
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 1.25rem;
     }
 
     .alliance-card h4 {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--color-primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .alliance-card p {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--color-text-muted);
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .alliance-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .alliance-prod-card {
       border: 1px solid var(--color-border);
       background: white;
       border-radius: 12px;
-      padding: 1rem;
+      padding: 0.85rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.01);
     }
 
     .alliance-prod-card h5 {
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--color-primary);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     .alliance-prod-card p {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--color-text-muted);
       line-height: 1.3;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
     .alliance-specs-list {
       border-top: 1px solid var(--color-border);
-      padding-top: 0.5rem;
+      padding-top: 0.4rem;
     }
 
     .alliance-spec-row {
       display: flex;
       justify-content: space-between;
-      font-size: 0.7rem;
-      margin-bottom: 0.25rem;
+      font-size: 0.65rem;
+      margin-bottom: 0.2rem;
     }
 
     .alliance-spec-lbl {
@@ -788,9 +808,9 @@
 
     /* Back Cover Styling */
     .back-cover-page {
-      background: linear-gradient(135deg, #09172c 0%, #0d2547 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       padding: 0;
-      color: white;
+      color: var(--color-primary);
       justify-content: center;
       align-items: center;
     }
@@ -811,10 +831,10 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid var(--color-border);
       padding-bottom: 1.25rem;
       font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--color-text-muted);
     }
 
     .back-center {
@@ -834,13 +854,13 @@
     .back-center h3 {
       font-size: 1.75rem;
       font-weight: 800;
-      color: white;
+      color: var(--color-primary);
       margin-bottom: 0.25rem;
     }
 
     .back-center p {
       font-size: 0.95rem;
-      color: var(--color-accent-gold-light);
+      color: var(--color-accent-gold-dark);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -855,16 +875,16 @@
 
     .back-meta-text {
       font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.5);
+      color: var(--color-text-muted);
       max-width: 320px;
       line-height: 1.5;
     }
 
     .back-bottom {
       font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.4);
+      color: var(--color-text-muted);
       width: 100%;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid var(--color-border);
       padding-top: 1.25rem;
     }
 
@@ -918,8 +938,8 @@
       }
 
       .cover-page, .back-cover-page {
-        background: linear-gradient(135deg, #09172c 0%, #0d2547 100%) !important;
-        color: white !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+        color: #0c2240 !important;
       }
 
       .cover-body::before, .cover-body::after {
@@ -957,14 +977,14 @@
   <!-- Corporate Document Pages -->
   <div class="profile-document">
     
-    <!-- PAGE 1: FRONT COVER -->
+    <!-- PAGE 1: FRONT COVER (Premium Light Mode) -->
     <div class="page-container cover-page">
       <div class="cover-body">
         <span class="cover-badge-top" id="c-badge">Saudi Arabia & International</span>
         
         <div class="cover-center">
           <div class="cover-logo-box">
-            <img src="Integrated_Logo.png" alt="Integrated Company Emblem">
+            <img src="Integrated_Logo.png" alt="Integrated Company Logo">
           </div>
           <h1 class="cover-title-brand" id="c-title">Integrated Company</h1>
           <div class="cover-divider"></div>
@@ -1073,13 +1093,18 @@
         We specialize in the strategic supply, distribution, and commercial trading of heavy construction machinery, providing high-end project support to infrastructure developers and real estate contractors across the region.
       </p>
       
+      <!-- Embedded Saudi Operations Photo -->
+      <div class="profile-photo-container">
+        <img src="saudi_construction.png" alt="Saudi Fleet Operations">
+      </div>
+      
       <!-- Machinery Grid -->
       <div class="equip-grid">
         <!-- Grader -->
         <div class="equip-card">
           <div class="equip-card-top">
             <div class="equip-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="16" cy="17" r="2" /><circle cx="20" cy="17" r="2" /><circle cx="5" cy="17" r="2" /><line x1="9" y1="18" x2="13" y2="15" /><path d="M5 15h1v-2l8-3h2v4h4v3" /><rect x="11" y="6" width="4" height="4" rx="1" /><line x1="13" y1="6" x2="13" y2="10" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="16" cy="17" r="2" /><circle cx="20" cy="17" r="2" /><circle cx="5" cy="17" r="2" /><line x1="9" y1="18" x2="13" y2="15" /><path d="M5 15h1v-2l8-3h2v4h4v3" /><rect x="11" y="6" width="4" height="4" rx="1" /><line x1="13" y1="6" x2="13" y2="10" /></svg>
             </div>
             <h4 id="s2-eq1-head">Motor Grader</h4>
           </div>
@@ -1090,7 +1115,7 @@
         <div class="equip-card">
           <div class="equip-card-top">
             <div class="equip-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="14" width="13" height="4" rx="2" /><path d="M19 18v-5l2-1" /><path d="M14 15l5 1" /><path d="M6 14V8h6v6" /><rect x="8" y="9.5" width="2.5" height="2.5" /><path d="M4 15H2v-3" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="14" width="13" height="4" rx="2" /><path d="M19 18v-5l2-1" /><path d="M14 15l5 1" /><path d="M6 14V8h6v6" /><rect x="8" y="9.5" width="2.5" height="2.5" /><path d="M4 15H2v-3" /></svg>
             </div>
             <h4 id="s2-eq2-head">Crawler Dozer</h4>
           </div>
@@ -1101,7 +1126,7 @@
         <div class="equip-card">
           <div class="equip-card-top">
             <div class="equip-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="14" cy="16" r="3" /><circle cx="6" cy="17" r="2" /><path d="M6 15h11v-4H12V7H8v4H6z" /><path d="M6 14H2l-1-3h2l1 2" /><path d="M17 14h2l2.5-3.5 0.5-3.5-1.5 1" /><path d="M19 7l1.5-1.5" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="14" cy="16" r="3" /><circle cx="6" cy="17" r="2" /><path d="M6 15h11v-4H12V7H8v4H6z" /><path d="M6 14H2l-1-3h2l1 2" /><path d="M17 14h2l2.5-3.5 0.5-3.5-1.5 1" /><path d="M19 7l1.5-1.5" /></svg>
             </div>
             <h4 id="s2-eq3-head">Backhoe Loader</h4>
           </div>
@@ -1112,7 +1137,7 @@
         <div class="equip-card">
           <div class="equip-card-top">
             <div class="equip-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="16" width="12" height="3" rx="1.5" /><path d="M5 16V9h6v3h3v4z" /><path d="M11 11l4-5 3.5 3L20 13" /><path d="M19.5 12.5l1.5 2h-2.5z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="16" width="12" height="3" rx="1.5" /><path d="M5 16V9h6v3h3v4z" /><path d="M11 11l4-5 3.5 3L20 13" /><path d="M19.5 12.5l1.5 2h-2.5z" /></svg>
             </div>
             <h4 id="s2-eq4-head">Heavy Excavator</h4>
           </div>
@@ -1153,7 +1178,7 @@
         </div>
         <div class="brands-badge-box">
           <!-- PETROLUBE high-fidelity brand reproduction -->
-          <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width: 110px; height: auto;">
+          <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width: 95px; height: auto;">
             <g transform="skewX(-12) translate(12, 3)">
               <line x1="25" y1="4" x2="85" y2="4" stroke="#005A36" stroke-width="2.5" />
               <line x1="23" y1="8" x2="83" y2="8" stroke="#005A36" stroke-width="2.5" />
@@ -1164,6 +1189,11 @@
             </g>
           </svg>
         </div>
+      </div>
+
+      <!-- Embedded Senegal Branch Products Photo -->
+      <div class="profile-photo-container">
+        <img src="senegal_branch.png" alt="Industrial Supply and Polymers">
       </div>
       
       <!-- Supply Grid -->
@@ -1179,17 +1209,6 @@
           </ul>
         </div>
         
-        <!-- Fertilizers -->
-        <div class="supply-card">
-          <span class="supply-tag" id="s3-tg2">Agriculture</span>
-          <h4 id="s3-sp2-head">SABIC Agri-Nutrients</h4>
-          <p id="s3-sp2-desc">Approved supply of SABIC's high-nitrogen urea agricultural fertilizers designed to maximize crop yield in global markets.</p>
-          <ul class="supply-features">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp2-f1">High Solubility Rates</span></li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp2-f2">Urea & Chemical Blends</span></li>
-          </ul>
-        </div>
-        
         <!-- Lubricants -->
         <div class="supply-card">
           <span class="supply-tag" id="s3-tg3">Industrial Fluids</span>
@@ -1198,17 +1217,6 @@
           <ul class="supply-features">
             <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp3-f1">Extreme Thermal Stability</span></li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp3-f2">Wear Protection System</span></li>
-          </ul>
-        </div>
-        
-        <!-- Global Expansion -->
-        <div class="supply-card">
-          <span class="supply-tag" id="s3-tg4">Commercial Pipelines</span>
-          <h4 id="s3-sp4-head">Global Logistics Pipeline</h4>
-          <p id="s3-sp4-desc">Actively expanding our international supply corridors, consolidating raw materials trading pipelines inside developing nations.</p>
-          <ul class="supply-features">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp4-f1">Bilateral Supply Chains</span></li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp4-f2">Constantly Growing Catalog</span></li>
           </ul>
         </div>
       </div>
@@ -1239,6 +1247,11 @@
         <p id="s4-desc">
           Integrated Company holds a strategic shareholding stake inside the Universal Machinery Group. This alliance solidifies our dominance within West Africa's rapid mining, infrastructure, and heavy construction boom. As an authorized distributor, the group offers Doosan (Develon) fleets backed by robust support.
         </p>
+      </div>
+
+      <!-- Embedded Universal Machinery Photo -->
+      <div class="profile-photo-container">
+        <img src="universal_machinery.png" alt="Develon Heavy Equipment">
       </div>
       
       <!-- Product Catalog Grid -->
@@ -1316,7 +1329,7 @@
       <!-- Network directory -->
       <div class="network-container">
         <div class="network-card">
-          <h4 id="s5- Riyadh-title">Saudi Arabia Headquarters</h4>
+          <h4 id="s5-Riyadh-title">Saudi Arabia Headquarters</h4>
           <p id="s5-Riyadh-desc">Al Mojil Tower – Level 6,<br>King Salman Road 36341, Al Hasa,<br>Kingdom of Saudi Arabia</p>
         </div>
         <div class="network-card">
@@ -1359,7 +1372,7 @@
       </footer>
     </div>
     
-    <!-- PAGE 7: BACK COVER -->
+    <!-- PAGE 7: BACK COVER (Premium Light Mode) -->
     <div class="page-container back-cover-page">
       <div class="back-cover-body">
         <div class="back-top">
