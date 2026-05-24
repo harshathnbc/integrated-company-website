@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Profile - Integrated Company</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==================== CORE DESIGN SYSTEM & VARIABLES ==================== */
+    :root {
+      --color-primary: #0c2240;      /* Deep Luxury Corporate Navy */
+      --color-primary-light: #193d77;/* Brand Navy Blue */
+      --color-accent-gold: #c5a059;  /* Premium Metallic Gold */
+      --color-accent-gold-dark: #a9833f;
+      --color-accent-gold-light: #e2c084;
+      --color-text-dark: #0f172a;    /* Slate 900 */
+      --color-text-muted: #475569;   /* Slate 600 */
+      --color-bg-light: #f8fafc;     /* Slate 50 */
+      --color-border: #e2e8f0;       /* Slate 200 */
+      
+      --font-en: 'Outfit', 'Inter', sans-serif;
+      --font-ar: 'Cairo', sans-serif;
+      
+      --transition-fluid: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f1f5f9;
+      color: var(--color-text-dark);
+      font-family: var(--font-en);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 80px; /* Space for fixed control bar */
+    }
+
+    body.lang-ar {
+      font-family: var(--font-ar);
+      direction: rtl;
+    }
+
+    /* ==================== INTERACTIVE CONTROL BAR ==================== */
+    .control-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 10000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .bar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .bar-brand img {
+      height: 40px;
+      width: auto;
+    }
+
+    .bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-action {
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition-fluid);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid transparent;
+    }
+
+    .btn-lang {
+      background: rgba(12, 34, 64, 0.05);
+      border-color: rgba(12, 34, 64, 0.1);
+      color: var(--color-primary);
+    }
+
+    .btn-lang:hover {
+      background: rgba(12, 34, 64, 0.1);
+    }
+
+    .btn-print {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .btn-print:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(12, 34, 64, 0.2);
+    }
+
+    .print-tips {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      max-width: 450px;
+      line-height: 1.3;
+      text-align: right;
+    }
+
+    body.lang-ar .print-tips {
+      text-align: left;
+    }
+
+    /* ==================== A4 BOOKLET PREVIEW LAYOUT ==================== */
+    .profile-document {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding-bottom: 3rem;
+    }
+
+    /* A4 Container */
+    .page-container {
+      width: 210mm;
+      height: 297mm;
+      background: #ffffff;
+      margin: 2.5rem auto;
+      box-shadow: 0 15px 45px rgba(15, 23, 42, 0.08);
+      border-radius: 6px;
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      position: relative;
+      box-sizing: border-box;
+      padding: 20mm 18mm;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Page Header */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid rgba(197, 160, 89, 0.2);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .header-logo img {
+      height: 28px;
+      width: auto;
+    }
+
+    .header-logo span {
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .header-section-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-accent-gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Page Footer */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--color-border);
+      padding-top: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-top: auto;
+    }
+
+    .footer-page-number {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    /* ==================== PAGE 1: FRONT COVER ==================== */
+    .cover-page {
+      background: linear-gradient(135deg, #09172c 0%, #0d2547 100%);
+      padding: 0;
+      color: white;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover-body {
+      width: 100%;
+      height: 100%;
+      padding: 25mm 20mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Geometric gold line accents on cover */
+    .cover-body::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 100px;
+      background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.15), transparent);
+      top: 35%;
+      left: -25%;
+      transform: rotate(-35deg);
+      pointer-events: none;
+    }
+
+    .cover-body::after {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 60px;
+      background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent);
+      bottom: 25%;
+      right: -25%;
+      transform: rotate(25deg);
+      pointer-events: none;
+    }
+
+    .cover-badge-top {
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      background: rgba(197, 160, 89, 0.08);
+      padding: 0.4rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-accent-gold-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .cover-center {
+      text-align: center;
+      z-index: 10;
+      margin: auto 0;
+    }
+
+    .cover-logo-box {
+      margin-bottom: 2.5rem;
+      animation: floatLogo 6s infinite alternate ease-in-out;
+    }
+
+    @keyframes floatLogo {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+
+    .cover-logo-box img {
+      height: 110px;
+      width: auto;
+      filter: drop-shadow(0 10px 25px rgba(0,0,0,0.3));
+    }
+
+    .cover-title-brand {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent-gold-light), var(--color-accent-gold));
+      margin: 1.25rem auto;
+      border-radius: 2px;
+    }
+
+    .cover-subtitle {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--color-accent-gold-light);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1.25rem;
+    }
+
+    .cover-tagline {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .cover-bottom {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      z-index: 10;
+    }
+
+    .cover-meta {
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .cover-meta-right {
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    body.lang-ar .cover-meta { text-align: right; }
+    body.lang-ar .cover-meta-right { text-align: left; }
+
+    .cover-meta-val {
+      font-weight: 700;
+      color: var(--color-accent-gold-light);
+    }
+
+    /* ==================== CONTENT LAYOUT ELEMENTS ==================== */
+    .section-title-block {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-num {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-accent-gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-main-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1.2;
+    }
+
+    .intro-paragraph {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    /* Two Columns */
+    .two-col-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* Stats Grid */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--color-bg-light);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--color-primary-light);
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-txt {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    /* Pillar Box */
+    .pillars-block h4 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 0.5rem;
+    }
+
+    .pillars-list {
+      list-style: none;
+    }
+
+    .pillars-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .pillars-list li svg {
+      color: var(--color-accent-gold-dark);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .pillar-details h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      margin-bottom: 0.15rem;
+    }
+
+    .pillar-details p {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    /* ==================== PAGE 3: MACHINERY FLEET ==================== */
+    .equip-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .equip-card {
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-bg-light);
+      height: 100%;
+    }
+
+    .equip-card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .equip-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(12, 34, 64, 0.05);
+      border: 1px solid rgba(12, 34, 64, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+    }
+
+    .equip-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .equip-card p {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: auto;
+    }
+
+    /* ==================== PAGE 4: INDUSTRIAL SUPPLY ==================== */
+    .brands-badge-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      background: var(--color-bg-light);
+      padding: 1rem;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      align-items: center;
+    }
+
+    .brands-badge-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: 110px;
+    }
+
+    .brands-badge-box {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+    }
+
+    .brands-badge-box img {
+      height: 24px;
+      width: auto;
+    }
+
+    .brands-badge-box svg {
+      height: 22px;
+      width: auto;
+    }
+
+    .supply-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .supply-card {
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    }
+
+    .supply-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--color-accent-gold-dark);
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .supply-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-bg-light);
+      padding-bottom: 0.5rem;
+    }
+
+    .supply-card p {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
+    .supply-features {
+      list-style: none;
+    }
+
+    .supply-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--color-text-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .supply-features li svg {
+      color: var(--color-accent-gold);
+    }
+
+    /* ==================== PAGE 5: UNIVERSAL ALLIANCE ==================== */
+    .alliance-card {
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-light);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .alliance-card h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .alliance-card p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .alliance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .alliance-prod-card {
+      border: 1px solid var(--color-border);
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+    }
+
+    .alliance-prod-card h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .alliance-prod-card p {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .alliance-specs-list {
+      border-top: 1px solid var(--color-border);
+      padding-top: 0.5rem;
+    }
+
+    .alliance-spec-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .alliance-spec-lbl {
+      color: var(--color-text-muted);
+    }
+
+    .alliance-spec-val {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    /* ==================== PAGE 6: DIRECTORY & BACK COVER ==================== */
+    .network-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .network-card {
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      background: var(--color-bg-light);
+    }
+
+    .network-card h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .network-card p {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    .closing-block {
+      border-top: 2px solid rgba(197, 160, 89, 0.3);
+      padding-top: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .closing-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      max-width: 480px;
+      margin: 0 auto 1.5rem auto;
+      line-height: 1.5;
+    }
+
+    .direct-channels-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .direct-chan-item {
+      background: white;
+      border: 1px solid var(--color-border);
+      padding: 0.85rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .direct-chan-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(12, 34, 64, 0.05);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .direct-chan-info {
+      text-align: left;
+    }
+
+    body.lang-ar .direct-chan-info {
+      text-align: right;
+    }
+
+    .direct-chan-info h5 {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+    }
+
+    .direct-chan-info p {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .direct-chan-info a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Back Cover Styling */
+    .back-cover-page {
+      background: linear-gradient(135deg, #09172c 0%, #0d2547 100%);
+      padding: 0;
+      color: white;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .back-cover-body {
+      width: 100%;
+      height: 100%;
+      padding: 25mm 20mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .back-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.25rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .back-center {
+      margin: auto 0;
+    }
+
+    .back-emblem {
+      margin-bottom: 1.5rem;
+    }
+
+    .back-emblem svg {
+      width: 80px;
+      height: 80px;
+      color: var(--color-accent-gold);
+    }
+
+    .back-center h3 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.25rem;
+    }
+
+    .back-center p {
+      font-size: 0.95rem;
+      color: var(--color-accent-gold-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .back-seal {
+      width: 50px;
+      height: 2px;
+      background: var(--color-accent-gold);
+      margin: 1.25rem auto;
+    }
+
+    .back-meta-text {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 320px;
+      line-height: 1.5;
+    }
+
+    .back-bottom {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.25rem;
+    }
+
+
+    /* ==================== BILINGUAL FLIP FLOW ==================== */
+    body.lang-ar .cover-badge-top { letter-spacing: 0; }
+    body.lang-ar .cover-subtitle { letter-spacing: 1px; }
+    body.lang-ar .header-section-name { letter-spacing: 0; }
+    body.lang-ar .stat-txt { letter-spacing: 0; }
+    body.lang-ar .brands-badge-label { letter-spacing: 0; }
+    body.lang-ar .supply-tag { letter-spacing: 0; }
+    body.lang-ar .back-center p { letter-spacing: 1px; }
+    body.lang-ar .direct-chan-info h5 { letter-spacing: 0; }
+
+    /* ==================== PRINT STYLES ==================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: white !important;
+        color: #000000 !important;
+        padding-top: 0 !important;
+      }
+
+      .control-bar {
+        display: none !important;
+      }
+
+      .profile-document {
+        max-width: 100% !important;
+        padding-bottom: 0 !important;
+      }
+
+      .page-container {
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        padding: 20mm 18mm !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .cover-page, .back-cover-page {
+        background: linear-gradient(135deg, #09172c 0%, #0d2547 100%) !important;
+        color: white !important;
+      }
+
+      .cover-body::before, .cover-body::after {
+        opacity: 0.5 !important;
+      }
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+  <!-- Interactive Control Bar -->
+  <div class="control-bar">
+    <a href="#" class="bar-brand">
+      <img src="Integrated_Logo.png" alt="Integrated Company Logo">
+      <span id="label-brand">Integrated Company</span>
+    </a>
+    
+    <div class="print-tips" id="print-instructions">
+      <strong>Pro Tip:</strong> Click Print or press <strong>Ctrl+P</strong>. Set destination to <strong>Save as PDF</strong>, layout <strong>Portrait</strong>, paper size <strong>A4</strong>, margins <strong>None</strong>, and enable <strong>Background graphics</strong>.
+    </div>
+
+    <div class="bar-actions">
+      <!-- Language Switchers -->
+      <button class="btn-action btn-lang" id="lang-switch-en">English</button>
+      <button class="btn-action btn-lang" id="lang-switch-ar">العربية</button>
+      
+      <!-- Print PDF Trigger -->
+      <button class="btn-action btn-print" onclick="window.print()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        <span id="label-btn-print">Print / Save PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Corporate Document Pages -->
+  <div class="profile-document">
+    
+    <!-- PAGE 1: FRONT COVER -->
+    <div class="page-container cover-page">
+      <div class="cover-body">
+        <span class="cover-badge-top" id="c-badge">Saudi Arabia & International</span>
+        
+        <div class="cover-center">
+          <div class="cover-logo-box">
+            <img src="Integrated_Logo.png" alt="Integrated Company Emblem">
+          </div>
+          <h1 class="cover-title-brand" id="c-title">Integrated Company</h1>
+          <div class="cover-divider"></div>
+          <h2 class="cover-subtitle" id="c-sub">Corporate Profile</h2>
+          <p class="cover-tagline" id="c-tag">Bilingual Heavy Machinery Supply, Industrial Trading & Materials Distribution Solutions</p>
+        </div>
+        
+        <div class="cover-bottom">
+          <div class="cover-meta">
+            <p id="c-meta-sector">Primary Divisions</p>
+            <p class="cover-meta-val" id="c-meta-sectors-val">Construction · Industrial · Trading</p>
+          </div>
+          <div class="cover-meta-right">
+            <p id="c-meta-doc">Document ID</p>
+            <p class="cover-meta-val">IC-CP-2026</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- PAGE 2: EXEC SUMMARY & METRICS -->
+    <div class="page-container">
+      <header class="page-header">
+        <div class="header-logo">
+          <img src="Integrated_Logo.png" alt="Emblem">
+          <span id="h-brand">Integrated Company</span>
+        </div>
+        <span class="header-section-name" id="h-sec-1">Corporate Overview</span>
+      </header>
+      
+      <div class="section-title-block">
+        <span class="section-num">01</span>
+        <h2 class="section-main-title" id="s1-title">Executive Summary</h2>
+      </div>
+      
+      <p class="intro-paragraph" id="s1-desc">
+        Integrated Company is a premier Saudi corporate delivering top-tier solutions across construction, industrial, and commercial sectors globally. We bridge developing markets with leading international manufacturers to provide unparalleled machinery assets and industrial raw materials.
+      </p>
+      
+      <!-- Key Statistics -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <p class="stat-val">15+</p>
+          <p class="stat-txt" id="s1-st1">Years Experience</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-val">3+</p>
+          <p class="stat-txt" id="s1-st2">Global Markets</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-val">50+</p>
+          <p class="stat-txt" id="s1-st3">Machinery Models</p>
+        </div>
+      </div>
+      
+      <!-- Strategic Pillars -->
+      <div class="pillars-block">
+        <h4 id="s1-pil-title">Core Business Pillars</h4>
+        <ul class="pillars-list">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <div class="pillar-details">
+              <h5 id="s1-pil1-head">Equipment for Construction & Real Estate</h5>
+              <p id="s1-pil1-desc">Empowering large-scale infrastructure with premium, heavy construction machinery fleet operations and logistics inside the Saudi Kingdom.</p>
+            </div>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 9.172V5L8 4z"/></svg>
+            <div class="pillar-details">
+              <h5 id="s1-pil2-head">Industrial Material Supply</h5>
+              <p id="s1-pil2-desc">Approved corporate trading and distribution of SABIC polymers, agricultural agri-nutrients, and strategic high-performance engine engineering fluids.</p>
+            </div>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            <div class="pillar-details">
+              <h5 id="s1-pil3-head">International Commercial Pipelines</h5>
+              <p id="s1-pil3-desc">Forging global trading bridges and supplying high-performance machinery across developing markets inside strategic alliances.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <footer class="page-footer">
+        <span id="f-copyright">Integrated Company · Corporate Profile</span>
+        <span class="footer-page-number">02</span>
+      </footer>
+    </div>
+    
+    <!-- PAGE 3: MACHINERY FLEET -->
+    <div class="page-container">
+      <header class="page-header">
+        <div class="header-logo">
+          <img src="Integrated_Logo.png" alt="Emblem">
+          <span id="h-brand-2">Integrated Company</span>
+        </div>
+        <span class="header-section-name" id="h-sec-2">Construction Division</span>
+      </header>
+      
+      <div class="section-title-block">
+        <span class="section-num">02</span>
+        <h2 class="section-main-title" id="s2-title">Heavy Equipment Operations</h2>
+      </div>
+      
+      <p class="intro-paragraph" id="s2-desc">
+        We specialize in the strategic supply, distribution, and commercial trading of heavy construction machinery, providing high-end project support to infrastructure developers and real estate contractors across the region.
+      </p>
+      
+      <!-- Machinery Grid -->
+      <div class="equip-grid">
+        <!-- Grader -->
+        <div class="equip-card">
+          <div class="equip-card-top">
+            <div class="equip-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="16" cy="17" r="2" /><circle cx="20" cy="17" r="2" /><circle cx="5" cy="17" r="2" /><line x1="9" y1="18" x2="13" y2="15" /><path d="M5 15h1v-2l8-3h2v4h4v3" /><rect x="11" y="6" width="4" height="4" rx="1" /><line x1="13" y1="6" x2="13" y2="10" /></svg>
+            </div>
+            <h4 id="s2-eq1-head">Motor Grader</h4>
+          </div>
+          <p id="s2-eq1-desc">Engineered for absolute leveling precision in road building and large scale architectural site preparation.</p>
+        </div>
+        
+        <!-- Dozer -->
+        <div class="equip-card">
+          <div class="equip-card-top">
+            <div class="equip-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="14" width="13" height="4" rx="2" /><path d="M19 18v-5l2-1" /><path d="M14 15l5 1" /><path d="M6 14V8h6v6" /><rect x="8" y="9.5" width="2.5" height="2.5" /><path d="M4 15H2v-3" /></svg>
+            </div>
+            <h4 id="s2-eq2-head">Crawler Dozer</h4>
+          </div>
+          <p id="s2-eq2-desc">Massive pushing power combined with heavy tracks for earthmoving across harsh desert environments.</p>
+        </div>
+        
+        <!-- Backhoe -->
+        <div class="equip-card">
+          <div class="equip-card-top">
+            <div class="equip-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="14" cy="16" r="3" /><circle cx="6" cy="17" r="2" /><path d="M6 15h11v-4H12V7H8v4H6z" /><path d="M6 14H2l-1-3h2l1 2" /><path d="M17 14h2l2.5-3.5 0.5-3.5-1.5 1" /><path d="M19 7l1.5-1.5" /></svg>
+            </div>
+            <h4 id="s2-eq3-head">Backhoe Loader</h4>
+          </div>
+          <p id="s2-eq3-desc">Unmatched versatility combining a strong front loader bucket and high-reach rear digging arm.</p>
+        </div>
+        
+        <!-- Excavator -->
+        <div class="equip-card">
+          <div class="equip-card-top">
+            <div class="equip-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="16" width="12" height="3" rx="1.5" /><path d="M5 16V9h6v3h3v4z" /><path d="M11 11l4-5 3.5 3L20 13" /><path d="M19.5 12.5l1.5 2h-2.5z" /></svg>
+            </div>
+            <h4 id="s2-eq4-head">Heavy Excavator</h4>
+          </div>
+          <p id="s2-eq4-desc">High breakout forces for deep trenching, rock breaking, demolition, and massive bulk earth works.</p>
+        </div>
+      </div>
+      
+      <footer class="page-footer">
+        <span id="f-copyright-2">Integrated Company · Corporate Profile</span>
+        <span class="footer-page-number">03</span>
+      </footer>
+    </div>
+    
+    <!-- PAGE 4: INDUSTRIAL SUPPLY -->
+    <div class="page-container">
+      <header class="page-header">
+        <div class="header-logo">
+          <img src="Integrated_Logo.png" alt="Emblem">
+          <span id="h-brand-3">Integrated Company</span>
+        </div>
+        <span class="header-section-name" id="h-sec-3">Industrial Supply</span>
+      </header>
+      
+      <div class="section-title-block">
+        <span class="section-num">03</span>
+        <h2 class="section-main-title" id="s3-title">Industrial Material Trading</h2>
+      </div>
+      
+      <p class="intro-paragraph" id="s3-desc">
+        Integrated Company operates as a premier logistics pipeline, serving industrial sectors with authorized distribution of petrochemical materials, chemical fertilizers, and premium lubrication fluids.
+      </p>
+      
+      <!-- Strategic Partners Badges row -->
+      <div class="brands-badge-row">
+        <span class="brands-badge-label" id="s3-auth-lbl">Strategic Partners</span>
+        <div class="brands-badge-box">
+          <img src="sabic_logo.png" alt="SABIC">
+        </div>
+        <div class="brands-badge-box">
+          <!-- PETROLUBE high-fidelity brand reproduction -->
+          <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width: 110px; height: auto;">
+            <g transform="skewX(-12) translate(12, 3)">
+              <line x1="25" y1="4" x2="85" y2="4" stroke="#005A36" stroke-width="2.5" />
+              <line x1="23" y1="8" x2="83" y2="8" stroke="#005A36" stroke-width="2.5" />
+              <line x1="21" y1="12" x2="81" y2="12" stroke="#005A36" stroke-width="2.5" />
+              <text x="0" y="44" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#005A36">PETRO</text>
+              <polygon points="102,15 174,15 166,46 94,46" fill="#005A36" />
+              <text x="104" y="39" font-family="'Outfit', sans-serif" font-weight="900" font-size="25" fill="#F4B223">LUBE</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Supply Grid -->
+      <div class="supply-grid">
+        <!-- Polymers -->
+        <div class="supply-card">
+          <span class="supply-tag" id="s3-tg1">Manufacturing</span>
+          <h4 id="s3-sp1-head">SABIC Polymers</h4>
+          <p id="s3-sp1-desc">Approved distribution of high-density polyethylene (HDPE) and polypropylene (PP) polymers essential for injection molding and extrusion.</p>
+          <ul class="supply-features">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp1-f1">High Tensile Strength</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp1-f2">Chemical Resistance</span></li>
+          </ul>
+        </div>
+        
+        <!-- Fertilizers -->
+        <div class="supply-card">
+          <span class="supply-tag" id="s3-tg2">Agriculture</span>
+          <h4 id="s3-sp2-head">SABIC Agri-Nutrients</h4>
+          <p id="s3-sp2-desc">Approved supply of SABIC's high-nitrogen urea agricultural fertilizers designed to maximize crop yield in global markets.</p>
+          <ul class="supply-features">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp2-f1">High Solubility Rates</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp2-f2">Urea & Chemical Blends</span></li>
+          </ul>
+        </div>
+        
+        <!-- Lubricants -->
+        <div class="supply-card">
+          <span class="supply-tag" id="s3-tg3">Industrial Fluids</span>
+          <h4 id="s3-sp3-head">PETROLUBE Fluids</h4>
+          <p id="s3-sp3-desc">Strategic distribution of PETROLUBE heavy-duty automotive engine oils, gear oils, high-performance grease, and hydraulics.</p>
+          <ul class="supply-features">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp3-f1">Extreme Thermal Stability</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp3-f2">Wear Protection System</span></li>
+          </ul>
+        </div>
+        
+        <!-- Global Expansion -->
+        <div class="supply-card">
+          <span class="supply-tag" id="s3-tg4">Commercial Pipelines</span>
+          <h4 id="s3-sp4-head">Global Logistics Pipeline</h4>
+          <p id="s3-sp4-desc">Actively expanding our international supply corridors, consolidating raw materials trading pipelines inside developing nations.</p>
+          <ul class="supply-features">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp4-f1">Bilateral Supply Chains</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="s3-sp4-f2">Constantly Growing Catalog</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <footer class="page-footer">
+        <span id="f-copyright-3">Integrated Company · Corporate Profile</span>
+        <span class="footer-page-number">04</span>
+      </footer>
+    </div>
+    
+    <!-- PAGE 5: STRATEGIC ALLIANCE -->
+    <div class="page-container">
+      <header class="page-header">
+        <div class="header-logo">
+          <img src="Integrated_Logo.png" alt="Emblem">
+          <span id="h-brand-4">Integrated Company</span>
+        </div>
+        <span class="header-section-name" id="h-sec-4">Strategic Alliance</span>
+      </header>
+      
+      <div class="section-title-block">
+        <span class="section-num">04</span>
+        <h2 class="section-main-title" id="s4-title">Universal Machinery Group</h2>
+      </div>
+      
+      <div class="alliance-card">
+        <h4 id="s4-sub">Strategic West African Alliance</h4>
+        <p id="s4-desc">
+          Integrated Company holds a strategic shareholding stake inside the Universal Machinery Group. This alliance solidifies our dominance within West Africa's rapid mining, infrastructure, and heavy construction boom. As an authorized distributor, the group offers Doosan (Develon) fleets backed by robust support.
+        </p>
+      </div>
+      
+      <!-- Product Catalog Grid -->
+      <div class="alliance-grid">
+        <!-- Excavator -->
+        <div class="alliance-prod-card">
+          <h5 id="s4-pr1-name">Crawler Excavator</h5>
+          <p id="s4-pr1-desc">Designed for heavy digging, offering breakout force.</p>
+          <div class="alliance-specs-list">
+            <div class="alliance-spec-row">
+              <span class="alliance-spec-lbl" id="s4-sp-lbl1">Weight</span>
+              <span class="alliance-spec-val">22.5 Tons</span>
+            </div>
+            <div class="alliance-spec-row">
+              <span class="alliance-spec-lbl" id="s4-sp-lbl2">Power</span>
+              <span class="alliance-spec-val">162 HP</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Loader -->
+        <div class="alliance-prod-card">
+          <h5 id="s4-pr2-name">Wheel Loader</h5>
+          <p id="s4-pr2-desc">Optimal loading capacity with differentials.</p>
+          <div class="alliance-specs-list">
+            <div class="alliance-spec-row">
+              <span class="alliance-spec-lbl" id="s4-sp-lbl3">Capacity</span>
+              <span class="alliance-spec-val">4.5 m³</span>
+            </div>
+            <div class="alliance-spec-row">
+              <span class="alliance-spec-lbl" id="s4-sp-lbl4">Power</span>
+              <span class="alliance-spec-val">246 HP</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Dump Truck -->
+        <div class="alliance-prod-card">
+          <h5 id="s4-pr3-name">Dump Truck</h5>
+          <p id="s4-pr3-desc">High-payload trucks offering continuous contact.</p>
+          <div class="alliance-specs-list">
+            <div class="alliance-spec-row">
+              <span class="alliance-spec-lbl" id="s4-sp-lbl5">Payload</span>
+              <span class="alliance-spec-val">28.0 Tons</span>
+            </div>
+            <div class="alliance-spec-row">
+              <span class="alliance-spec-lbl" id="s4-sp-lbl6">Power</span>
+              <span class="alliance-spec-val">375 HP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="page-footer">
+        <span id="f-copyright-4">Integrated Company · Corporate Profile</span>
+        <span class="footer-page-number">05</span>
+      </footer>
+    </div>
+    
+    <!-- PAGE 6: DIRECTORY & CLOSING -->
+    <div class="page-container">
+      <header class="page-header">
+        <div class="header-logo">
+          <img src="Integrated_Logo.png" alt="Emblem">
+          <span id="h-brand-5">Integrated Company</span>
+        </div>
+        <span class="header-section-name" id="h-sec-5">Corporate Network</span>
+      </header>
+      
+      <div class="section-title-block">
+        <span class="section-num">05</span>
+        <h2 class="section-main-title" id="s5-title">Global Network Directory</h2>
+      </div>
+      
+      <!-- Network directory -->
+      <div class="network-container">
+        <div class="network-card">
+          <h4 id="s5- Riyadh-title">Saudi Arabia Headquarters</h4>
+          <p id="s5-Riyadh-desc">Al Mojil Tower – Level 6,<br>King Salman Road 36341, Al Hasa,<br>Kingdom of Saudi Arabia</p>
+        </div>
+        <div class="network-card">
+          <h4 id="s5-Dakar-title">Senegal Operations Hub</h4>
+          <p id="s5-Dakar-desc">INTEGRATED AFRICA COMPANY – SUARL<br>Villa N° 72, Cité Asecna, Ouakam,<br>Dakar, Sénégal</p>
+        </div>
+      </div>
+      
+      <!-- Closing / Channels -->
+      <div class="closing-block">
+        <p class="closing-text" id="s5-closing-text">Connect with our business development team in Al Hasa or Dakar to discover shared trading & supply opportunities.</p>
+        
+        <div class="direct-channels-row">
+          <!-- Email -->
+          <div class="direct-chan-item">
+            <div class="direct-chan-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v11a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div class="direct-chan-info">
+              <h5 id="s5-ch1-lbl">Corporate Email</h5>
+              <p><a href="mailto:info@integrated-equipment.com">info@integrated-equipment.com</a></p>
+            </div>
+          </div>
+          <!-- Phones -->
+          <div class="direct-chan-item">
+            <div class="direct-chan-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 00.996.808H12m-3 3a2 2 0 002 2v3a2 2 0 002 2h3.28a1 1 0 00.94-.725l.548-2.2a1 1 0 00-.996-.808H12m0 0a2 2 0 00-2-2h-3"/></svg>
+            </div>
+            <div class="direct-chan-info">
+              <h5 id="s5-ch2-lbl">Direct Phone Line</h5>
+              <p dir="ltr"><a href="tel:+966557266658">+966 55 726 6658</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="page-footer">
+        <span id="f-copyright-5">Integrated Company · Corporate Profile</span>
+        <span class="footer-page-number">06</span>
+      </footer>
+    </div>
+    
+    <!-- PAGE 7: BACK COVER -->
+    <div class="page-container back-cover-page">
+      <div class="back-cover-body">
+        <div class="back-top">
+          <span id="bc-meta-left">Integrated Company</span>
+          <span>IC-CP-2026</span>
+        </div>
+        
+        <div class="back-center">
+          <div class="back-emblem">
+            <!-- Handcrafted World-Class Circular Vector Emblem -->
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="50" cy="50" r="44" stroke-dasharray="6,4" />
+              <circle cx="50" cy="50" r="38" />
+              <path d="M35 50h30 M50 35v30" stroke-linecap="round" />
+              <circle cx="50" cy="50" r="6" fill="currentColor" />
+            </svg>
+          </div>
+          <h3 id="bc-brand">Integrated Company</h3>
+          <p id="bc-sub">Corporate Profile</p>
+          <div class="back-seal"></div>
+          <p class="back-meta-text" id="bc-intro">Delivering fully integrated machinery trading, industrial supply pipelines, and raw materials distribution across global markets.</p>
+        </div>
+        
+        <div class="back-bottom">
+          &copy; 2026 <span id="bc-copy">Integrated Company. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Translation Engine script -->
+  <script>
+    const trans = {
+      en: {
+        label_brand: "Integrated Company",
+        label_btn_print: "Print / Save PDF",
+        print_tips: "<strong>Pro Tip:</strong> Click Print or press <strong>Ctrl+P</strong>. Set destination to <strong>Save as PDF</strong>, layout <strong>Portrait</strong>, paper size <strong>A4</strong>, margins <strong>None</strong>, and enable <strong>Background graphics</strong>.",
+        
+        c_badge: "Saudi Arabia & International",
+        c_title: "Integrated Company",
+        c_sub: "Corporate Profile",
+        c_tag: "Bilingual Heavy Machinery Supply, Industrial Trading & Materials Distribution Solutions",
+        c_meta_sector: "Primary Divisions",
+        c_meta_sectors_val: "Construction · Industrial · Trading",
+        c_meta_doc: "Document ID",
+        
+        h_brand: "Integrated Company",
+        h_sec_1: "Corporate Overview",
+        s1_title: "Executive Summary",
+        s1_desc: "Integrated Company is a premier Saudi corporate delivering top-tier solutions across construction, industrial, and commercial sectors globally. We bridge developing markets with leading international manufacturers to provide unparalleled machinery assets and industrial raw materials.",
+        s1_st1: "Years Experience",
+        s1_st2: "Global Markets",
+        s1_st3: "Machinery Models",
+        s1_pil_title: "Core Business Pillars",
+        s1_pil1_head: "Equipment for Construction & Real Estate",
+        s1_pil1_desc: "Empowering large-scale infrastructure with premium, heavy construction machinery fleet operations and logistics inside the Saudi Kingdom.",
+        s1_pil2_head: "Industrial Material Supply",
+        s1_pil2_desc: "Approved corporate trading and distribution of SABIC polymers, agricultural agri-nutrients, and strategic high-performance engine engineering fluids.",
+        s1_pil3_head: "International Commercial Pipelines",
+        s1_pil3_desc: "Forging global trading bridges and supplying high-performance machinery across developing markets inside strategic alliances.",
+        
+        h_sec_2: "Construction Division",
+        s2_title: "Heavy Equipment Operations",
+        s2_desc: "We specialize in the strategic supply, distribution, and commercial trading of heavy construction machinery, providing high-end project support to infrastructure developers and real estate contractors across the region.",
+        s2_eq1_head: "Motor Grader",
+        s2_eq1_desc: "Engineered for absolute leveling precision in road building and large scale architectural site preparation.",
+        s2_eq2_head: "Crawler Dozer",
+        s2_eq2_desc: "Massive pushing power combined with heavy tracks for earthmoving across harsh desert environments.",
+        s2_eq3_head: "Backhoe Loader",
+        s2_eq3_desc: "Unmatched versatility combining a strong front loader bucket and high-reach rear digging arm.",
+        s2_eq4_head: "Heavy Excavator",
+        s2_eq4_desc: "High breakout forces for deep trenching, rock breaking, demolition, and massive bulk earth works.",
+        
+        h_sec_3: "Industrial Supply",
+        s3_title: "Industrial Material Trading",
+        s3_desc: "Integrated Company operates as a premier logistics pipeline, serving industrial sectors with authorized distribution of petrochemical materials, chemical fertilizers, and premium lubrication fluids.",
+        s3_auth_lbl: "Strategic Partners",
+        s3_tg1: "Manufacturing",
+        s3_sp1_head: "SABIC Polymers",
+        s3_sp1_desc: "Approved distribution of high-density polyethylene (HDPE) and polypropylene (PP) polymers essential for injection molding and extrusion.",
+        s3_sp1_f1: "High Tensile Strength",
+        s3_sp1_f2: "Chemical Resistance",
+        s3_tg2: "Agriculture",
+        s3_sp2_head: "SABIC Agri-Nutrients",
+        s3_sp2_desc: "Approved supply of SABIC's high-nitrogen urea agricultural fertilizers designed to maximize crop yield in global markets.",
+        s3_sp2_f1: "High Solubility Rates",
+        s3_sp2_f2: "Urea & Chemical Blends",
+        s3_tg3: "Industrial Fluids",
+        s3_sp3_head: "PETROLUBE Fluids",
+        s3_sp3_desc: "Strategic distribution of PETROLUBE heavy-duty automotive engine oils, gear oils, high-performance grease, and hydraulics.",
+        s3_sp3_f1: "Extreme Thermal Stability",
+        s3_sp3_f2: "Wear Protection System",
+        s3_tg4: "Commercial Pipelines",
+        s3_sp4_head: "Global Logistics Pipeline",
+        s3_sp4_desc: "Actively expanding our international supply corridors, consolidating raw materials trading pipelines inside developing nations.",
+        s3_sp4_f1: "Bilateral Supply Chains",
+        s3_sp4_f2: "Constantly Growing Catalog",
+        
+        h_sec_4: "Strategic Alliance",
+        s4_title: "Universal Machinery Group",
+        s4_sub: "Strategic West African Alliance",
+        s4_desc: "Integrated Company holds a strategic shareholding stake inside the Universal Machinery Group. This alliance solidifies our dominance within West Africa's rapid mining, infrastructure, and heavy construction boom. As an authorized distributor, the group offers Doosan (Develon) fleets backed by robust support.",
+        s4_pr1_name: "Crawler Excavator",
+        s4_pr1_desc: "Designed for heavy digging, offering breakout force.",
+        s4_sp_lbl1: "Weight",
+        s4_sp_lbl2: "Power",
+        s4_pr2_name: "Wheel Loader",
+        s4_pr2_desc: "Optimal loading capacity with differentials.",
+        s4_sp_lbl3: "Capacity",
+        s4_sp_lbl4: "Power",
+        s4_pr3_name: "Dump Truck",
+        s4_pr3_desc: "High-payload trucks offering continuous contact.",
+        s4_sp_lbl5: "Payload",
+        s4_sp_lbl6: "Power",
+        
+        h_sec_5: "Corporate Network",
+        s5_title: "Global Network Directory",
+        s5_Riyadh_title: "Saudi Arabia Headquarters",
+        s5_Riyadh_desc: "Al Mojil Tower – Level 6,<br>King Salman Road 36341, Al Hasa,<br>Kingdom of Saudi Arabia",
+        s5_Dakar_title: "Senegal Operations Hub",
+        s5_Dakar_desc: "INTEGRATED AFRICA COMPANY – SUARL<br>Villa N° 72, Cité Asecna, Ouakam,<br>Dakar, Sénégal",
+        s5_closing_text: "Connect with our business development team in Al Hasa or Dakar to discover shared trading & supply opportunities.",
+        s5_ch1_lbl: "Corporate Email",
+        s5_ch2_lbl: "Direct Phone Line",
+        
+        bc_brand: "Integrated Company",
+        bc_sub: "Corporate Profile",
+        bc_intro: "Delivering fully integrated machinery trading, industrial supply pipelines, and raw materials distribution across global markets.",
+        bc_copy: "Integrated Company. All rights reserved."
+      },
+      ar: {
+        label_brand: "الشركة المتكاملة",
+        label_btn_print: "طباعة / حفظ PDF",
+        print_tips: "<strong>نصيحة مهمة:</strong> اضغط طباعة أو <strong>Ctrl+P</strong>. حدد الوجهة <strong>حفظ بتنسيق PDF</strong>، التخطيط <strong>عمودي</strong>، حجم الورق <strong>A4</strong>، الهوامش <strong>بلا</strong>، وفعّل <strong>الرسومات الخلفية</strong>.",
+        
+        c_badge: "المملكة العربية السعودية ودولياً",
+        c_title: "الشركة المتكاملة",
+        c_sub: "الملف التعريفي للمؤسسة",
+        c_tag: "حلول متكاملة لتوريد المعدات الثقيلة، التجارة الصناعية، وتوزيع المواد الخام والبتروكيماويات",
+        c_meta_sector: "الأقسام الرئيسية",
+        c_meta_sectors_val: "الإنشاءات · التوريد الصناعي · التجارة",
+        c_meta_doc: "معرف المستند",
+        
+        h_brand: "الشركة المتكاملة",
+        h_sec_1: "نظرة عامة على الشركة",
+        s1_title: "الملخص التنفيذي",
+        s1_desc: "تعتبر الشركة المتكاملة شركة سعودية رائدة تقدم حلولاً لوجستية وهندسية عالية المستوى عبر قطاعات الإنشاءات والتوريد الصناعي والتجاري على مستوى العالم. نحن نربط الأسواق النامية بكبار المصنعين الدوليين لتوفير أفضل الآلات الثقيلة والمواد الخام الصناعية.",
+        s1_st1: "سنوات الخبرة",
+        s1_st2: "الأسواق العالمية",
+        s1_st3: "طرازات الآلات المتاحة",
+        s1_pil_title: "الركائز الأساسية للمجموعة",
+        s1_pil1_head: "معدات التشييد والعقارات",
+        s1_pil1_desc: "تمكين مشاريع البنية التحتية الكبرى من خلال عمليات أسطول الآلات الثقيلة وتوريد المعدات داخل المملكة العربية السعودية.",
+        s1_pil2_head: "التوريدات والمواد الصناعية",
+        s1_pil2_desc: "التوزيع والتجارة المعتمدة لبوليمرات سابك، المغذيات الزراعية والأسمدة، والزيوت الهندسية عالية الأداء من بترولوب.",
+        s1_pil3_head: "قنوات التجارة الدولية",
+        s1_pil3_desc: "بناء جسور التبادل التجاري وتوريد الآلات المتقدمة للأسواق الواعدة والنامية من خلال تحالفات استراتيجية.",
+        
+        h_sec_2: "قسم الإنشاءات",
+        s2_title: "عمليات المعدات الثقيلة",
+        s2_desc: "نحن متخصصون في التوريد والتجارة الاستراتيجية لآلات البناء الثقيلة، ونقدم دعماً لوجستياً متقدماً لمطوري البنية التحتية والمقاولين في المنطقة.",
+        s2_eq1_head: "ممهدة الطرق (Grader)",
+        s2_eq1_desc: "مصممة لتحقيق دقة متناهية في تسوية الأسطح وتمهيد الطرق وإعداد المواقع المعمارية الكبرى.",
+        s2_eq2_head: "جرافة مجنزرة (Dozer)",
+        s2_eq2_desc: "قوة دفع جبارة مع جنازير فولاذية ثقيلة لنقل التربة وتمهيد التضاريس في البيئات الصحراوية القاسية.",
+        s2_eq3_head: "لودر حفار (Backhoe)",
+        s2_eq3_desc: "مرونة تشغيلية فائقة تجمع بين مغرفة التحميل الأمامية وذراع الحفر الخلفية عالية المدى.",
+        s2_eq4_head: "حفار ثقيل (Excavator)",
+        s2_eq4_desc: "قوى هيدروليكية هائلة لعمليات الحفر العميق، وتكسير الصخور، والهدم، ونقل التربة الجماعي.",
+        
+        h_sec_3: "التوريد الصناعي",
+        s3_title: "تجارة المواد الصناعية",
+        s3_desc: "تعمل الشركة المتكاملة كقناة إمداد لوجستية رائدة، تخدم القطاعات الصناعية من خلال التوزيع المعتمد للمواد البتروكيماوية، الأسمدة الزراعية، والزيوت الصناعية.",
+        s3_auth_lbl: "الشركاء الاستراتيجيين",
+        s3_tg1: "التصنيع",
+        s3_sp1_head: "بوليمرات سابك",
+        s3_sp1_desc: "توزيع معتمد لبوليمرات البولي إيثيلين عالي الكثافة (HDPE) والبولي بروبيلين (PP) الأساسية للصناعات التحويلية وقوالب الحقن.",
+        s3_sp1_f1: "مقاومة شد هائلة",
+        s3_sp1_f2: "مقاومة كيميائية ممتازة",
+        s3_tg2: "الزراعة",
+        s3_sp2_head: "مغذيات سابك الزراعية",
+        s3_sp2_desc: "توريد معتمد لأسمدة اليوريا الزراعية والنيتروجينية من سابك والمصممة خصيصاً لزيادة إنتاجية المحاصيل.",
+        s3_sp2_f1: "معدلات ذوبان عالية",
+        s3_sp2_f2: "مركبات يوريا كيميائية متطورة",
+        s3_tg3: "السوائل الصناعية",
+        s3_sp3_head: "زيوت بترولوب الفنية",
+        s3_sp3_desc: "توزيع استراتيجي لزيوت محركات بترولوب الشاقة، وزيوت التروس، والشحوم الصناعية، والأنظمة الهيدروليكية.",
+        s3_sp3_f1: "استقرار حراري فائق",
+        s3_sp3_f2: "أنظمة متطورة لمنع الاحتكاك",
+        s3_tg4: "قنوات التبادل التجاري",
+        s3_sp4_head: "خطوط الإمداد اللوجستي",
+        s3_sp4_desc: "توسيع قنوات الإمداد الدولية باستمرار لربط المصانع والأسواق العالمية وتوريد المواد الخام للبلدان النامية.",
+        s3_sp4_f1: "سلاسل إمداد ثنائية مرنة",
+        s3_sp4_f2: "كتالوج منتجات متنامي باستمرار",
+        
+        h_sec_4: "التحالف الاستراتيجي",
+        s4_title: "المجموعة العالمية للآليات",
+        s4_sub: "التحالف الاستراتيجي لغرب أفريقيا",
+        s4_desc: "تمتلك الشركة المتكاملة حصة استراتيجية في المجموعة العالمية للآليات (Universal Machinery Group). يرسخ هذا التحالف تفوقنا في غرب أفريقيا داخل مجالات التعدين، البنية التحتية، وتوريد الآلات. وبصفتها موزعاً معتمداً، تقدم المجموعة أساطيل ديفرون (Develon) مدعومة بخدمات صيانة وقطع غيار أصلية.",
+        s4_pr1_name: "حفار مجنزر (Excavator)",
+        s4_pr1_desc: "مصمم للحفر الشاق، مع قوة كسر هيدروليكية ممتازة.",
+        s4_sp_lbl1: "الوزن",
+        s4_sp_lbl2: "القوة",
+        s4_pr2_name: "شاحنة تحميل (Loader)",
+        s4_pr2_desc: "سعة تحميل مثالية مع كفاءة تشغيلية ممتازة.",
+        s4_sp_lbl3: "السعة",
+        s4_sp_lbl4: "القوة",
+        s4_pr3_name: "شاحنة تفريغ (Dump Truck)",
+        s4_pr3_desc: "شاحنات تفريغ مفصلية عملاقة للأوزان الشاقة.",
+        s4_sp_lbl5: "الحمولة",
+        s4_sp_lbl6: "القوة",
+        
+        h_sec_5: "الشبكة الدولية",
+        s5_title: "دليل شبكتنا العالمية",
+        s5_Riyadh_title: "المقر الرئيسي - المملكة العربية السعودية",
+        s5_Riyadh_desc: "برج المجل – الطابق 6،<br>طريق الملك سلمان 36341، الأحساء،<br>المملكة العربية السعودية",
+        s5_Dakar_title: "مركز عمليات السنغال",
+        s5_Dakar_desc: "INTEGRATED AFRICA COMPANY – SUARL<br>فيلا رقم 72، حي أسيكنا، واكام،<br>دكار، جمهورية السنغال",
+        s5_closing_text: "تواصل مع ممثلي تطوير الاستثمار والتجارة الدولية لاستكشاف سبل التعاون وتوريد الآلات والمواد المتاحة.",
+        s5_ch1_lbl: "البريد الإلكتروني",
+        s5_ch2_lbl: "قناة الاتصال المباشر",
+        
+        bc_brand: "الشركة المتكاملة",
+        bc_sub: "الملف التعريفي للمؤسسة",
+        bc_intro: "توريد متكامل للمعدات الثقيلة، خطوط الإمداد الصناعي، وتوزيع المواد الخام عبر الأسواق العالمية.",
+        bc_copy: "الشركة المتكاملة. جميع الحقوق محفوظة."
+      }
+    };
+
+    function switchLang(lang) {
+      document.body.className = lang === 'ar' ? 'lang-ar' : 'lang-en';
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.setAttribute('lang', lang);
+      
+      const elements = {
+        'label-brand': 'label_brand',
+        'label-btn-print': 'label_print',
+        'print-instructions': 'print_tips',
+        
+        'c-badge': 'c_badge',
+        'c-title': 'c_title',
+        'c-sub': 'c_sub',
+        'c-tag': 'c_tag',
+        'c-meta-sector': 'c_meta_sector',
+        'c-meta-sectors-val': 'c_meta_sectors_val',
+        'c-meta-doc': 'c_meta_doc',
+        
+        'h-brand': 'h_brand',
+        'h-brand-2': 'h_brand',
+        'h-brand-3': 'h_brand',
+        'h-brand-4': 'h_brand',
+        'h-brand-5': 'h_brand',
+        
+        'h-sec-1': 'h_sec_1',
+        's1-title': 's1_title',
+        's1-desc': 's1_desc',
+        's1-st1': 's1_st1',
+        's1-st2': 's1_st2',
+        's1-st3': 's1_st3',
+        's1-pil-title': 's1_pil_title',
+        's1-pil1-head': 's1_pil1_head',
+        's1-pil1-desc': 's1_pil1_desc',
+        's1-pil2-head': 's1_pil2_head',
+        's1-pil2-desc': 's1_pil2_desc',
+        's1-pil3-head': 's1_pil3_head',
+        's1-pil3-desc': 's1_pil3_desc',
+        
+        'h-sec-2': 'h_sec_2',
+        's2-title': 's2_title',
+        's2-desc': 's2_desc',
+        's2-eq1-head': 's2_eq1_head',
+        's2-eq1-desc': 's2_eq1_desc',
+        's2-eq2-head': 's2_eq2_head',
+        's2-eq2-desc': 's2_eq2_desc',
+        's2-eq3-head': 's2_eq3_head',
+        's2-eq3-desc': 's2_eq3_desc',
+        's2-eq4-head': 's2_eq4_head',
+        's2-eq4-desc': 's2_eq4_desc',
+        
+        'h-sec-3': 'h_sec_3',
+        's3-title': 's3_title',
+        's3-desc': 's3_desc',
+        's3-auth-lbl': 's3_auth_lbl',
+        's3-tg1': 's3_tg1',
+        's3-sp1-head': 's3_sp1_head',
+        's3-sp1-desc': 's3_sp1_desc',
+        's3-sp1-f1': 's3_sp1_f1',
+        's3-sp1-f2': 's3_sp1_f2',
+        's3-tg2': 's3_tg2',
+        's3-sp2-head': 's3_sp2_head',
+        's3-sp2-desc': 's3_sp2_desc',
+        's3-sp2-f1': 's3_sp2_f1',
+        's3-sp2-f2': 's3_sp2_f2',
+        's3-tg3': 's3_tg3',
+        's3-sp3-head': 's3_sp3_head',
+        's3-sp3-desc': 's3_sp3_desc',
+        's3-sp3-f1': 's3_sp3_f1',
+        's3-sp3-f2': 's3_sp3_f2',
+        's3-tg4': 's3_tg4',
+        's3-sp4-head': 's3_sp4_head',
+        's3-sp4-desc': 's3_sp4_desc',
+        's3-sp4-f1': 's3_sp4_f1',
+        's3-sp4-f2': 's3_sp4_f2',
+        
+        'h-sec-4': 'h_sec_4',
+        's4-title': 's4_title',
+        's4-sub': 's4_sub',
+        's4-desc': 's4_desc',
+        's4-pr1-name': 's4_pr1_name',
+        's4-pr1-desc': 's4_pr1_desc',
+        's4-sp-lbl1': 's4_sp_lbl1',
+        's4-sp-lbl2': 's4_sp_lbl2',
+        's4-pr2-name': 's4_pr2_name',
+        's4-pr2-desc': 's4_pr2_desc',
+        's4-sp-lbl3': 's4_sp_lbl3',
+        's4-sp-lbl4': 's4_sp_lbl4',
+        's4-pr3-name': 's4_pr3_name',
+        's4-pr3-desc': 's4_pr3_desc',
+        's4-sp-lbl5': 's4_sp_lbl5',
+        's4-sp-lbl6': 's4_sp_lbl6',
+        
+        'h-sec-5': 'h_sec_5',
+        's5-title': 's5_title',
+        's5-Riyadh-title': 's5_Riyadh_title',
+        's5-Riyadh-desc': 's5_Riyadh_desc',
+        's5-Dakar-title': 's5_Dakar_title',
+        's5-Dakar-desc': 's5_Dakar_desc',
+        's5-closing-text': 's5_closing_text',
+        's5-ch1-lbl': 's5_ch1_lbl',
+        's5-ch2-lbl': 's5_ch2_lbl',
+        
+        'bc-brand': 'bc_brand',
+        'bc-sub': 'bc_sub',
+        'bc-intro': 'bc_intro',
+        'bc-copy': 'bc_copy'
+      };
+
+      for (let id in elements) {
+        const el = document.getElementById(id);
+        if (el) {
+          const key = elements[id];
+          if (trans[lang] && trans[lang][key]) {
+            el.innerHTML = trans[lang][key];
+          }
+        }
+      }
+
+      // Update footers and static metadata
+      for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById('f-copyright' + (i === 1 ? '' : '-' + i));
+        if (el) {
+          el.textContent = lang === 'ar' ? 'الشركة المتكاملة · الملف التعريفي للمؤسسة' : 'Integrated Company · Corporate Profile';
+        }
+      }
+
+      const bcMetaLeft = document.getElementById('bc-meta-left');
+      if (bcMetaLeft) {
+        bcMetaLeft.textContent = lang === 'ar' ? 'الشركة المتكاملة' : 'Integrated Company';
+      }
+    }
+
+    document.getElementById('lang-switch-en').addEventListener('click', () => switchLang('en'));
+    document.getElementById('lang-switch-ar').addEventListener('click', () => switchLang('ar'));
+  </script>
+</body>
+</html>
