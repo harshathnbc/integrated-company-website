@@ -150,6 +150,18 @@ html {
 }
 
 /* Global Glowing Gradient Backdrops (Subtle soft neon meshes in light mode) */
+.glow-backdrops-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+  contain: strict;
+}
+
 .glow-backdrop {
   position: fixed;
   width: 60vw;

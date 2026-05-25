@@ -432,13 +432,8 @@ function navigateToSection(hash) {
     item.classList.add('active');
   });
 
-  // Smooth scroll to top of viewport deferred to next frame to completely prevent INP main-thread blocking
-  requestAnimationFrame(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+  // Reset scroll position to top instantly for a clean SPA page transition without main-thread blocking
+  window.scrollTo(0, 0);
 }
 
 // BULLETPROOF DELEGATED CLICK HANDLER: Uses event delegation on document body

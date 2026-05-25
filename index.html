@@ -68,9 +68,11 @@
 <body>
   <a href="#home-section" class="skip-link" data-i18n="skip_link">Skip to main content</a>
 
-  <!-- Floating Glowing Backdrops -->
-  <div class="glow-backdrop"></div>
-  <div class="glow-backdrop-2"></div>
+  <!-- Floating Glowing Backdrops Wrapper Container (contain: strict to completely block sibling layout shifts) -->
+  <div class="glow-backdrops-container" aria-hidden="true">
+    <div class="glow-backdrop"></div>
+    <div class="glow-backdrop-2"></div>
+  </div>
 
   <!-- Header & Glass Navbar -->
   <header class="navbar" id="main-navbar">
