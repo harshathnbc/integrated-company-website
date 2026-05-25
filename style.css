@@ -1248,6 +1248,10 @@ html[dir="rtl"] .authorized-brands-label {
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition-snap);
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 0;
 }
 
 .info-details a:hover {
@@ -1458,6 +1462,13 @@ html[dir="rtl"] .footer-links a:hover {
   font-size: 0.95rem;
   color: var(--color-text-light);
   line-height: 1.4;
+}
+
+.footer-contact-item a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 0;
 }
 
 .footer-contact-item svg {

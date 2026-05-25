@@ -475,6 +475,7 @@ function openMobileMenu() {
   if (navbarLinks && menuOverlay) {
     navbarLinks.classList.add('active');
     menuOverlay.classList.add('active');
+    menuOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden'; // Lock scrolling
   }
 }
@@ -483,6 +484,7 @@ function closeMobileMenu() {
   if (navbarLinks && menuOverlay) {
     navbarLinks.classList.remove('active');
     menuOverlay.classList.remove('active');
+    menuOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = ''; // Unlock scrolling
   }
 }
