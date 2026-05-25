@@ -1417,6 +1417,7 @@ html[dir="rtl"] .footer-logo-col img {
   max-width: 340px;
 }
 
+.footer-links-col h3, .footer-contact-col h3,
 .footer-links-col h4, .footer-contact-col h4 {
   font-size: 1.15rem;
   font-weight: 800;
@@ -1833,6 +1834,10 @@ html[dir="rtl"] .footer-links a:hover {
     text-align: right;
   }
 
+  html[dir="rtl"] .footer-links-col h3,
+  html[dir="rtl"] .footer-contact-col h3,
+  html[dir="rtl"] .footer-links-col h4,
+  html[dir="rtl"] .footer-contact-col h4,
   html[dir="rtl"] .footer-col h4 {
     text-align: right;
   }
