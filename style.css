@@ -162,6 +162,7 @@ html {
   border-radius: 50%;
   filter: blur(80px);
   animation: floatGlow 25s infinite alternate ease-in-out;
+  will-change: transform;
 }
 
 .glow-backdrop-2 {
@@ -176,6 +177,7 @@ html {
   border-radius: 50%;
   filter: blur(80px);
   animation: floatGlow 30s infinite alternate-reverse ease-in-out;
+  will-change: transform;
 }
 
 @keyframes floatGlow {
@@ -236,14 +238,15 @@ html {
 }
 
 .nav-brand img {
+  width: 54px;
   height: 54px;
-  width: auto;
   object-fit: contain;
   transition: var(--transition-fluid);
   filter: drop-shadow(0 4px 8px rgba(25, 61, 119, 0.15));
 }
 
 .navbar.scrolled .nav-brand img {
+  width: 44px;
   height: 44px;
 }
 
