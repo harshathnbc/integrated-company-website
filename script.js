@@ -401,29 +401,43 @@ function navigateToSection(hash) {
   // Close mobile navigation overlay if open
   closeMobileMenu();
 
-  // Deactivate all sections
-  const sections = document.querySelectorAll('.page-section');
-  sections.forEach(sec => {
-    sec.classList.remove('active');
-  });
+  // If section is already active, just defer the scroll and exit to prevent layout invalidations
+  if (targetSection.classList.contains('active')) {
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    return;
+  }
 
-  // Activate target section
+  // Deactivate currently active section and activate target section (O(1) class modifications)
+  const activeSection = document.querySelector('.page-section.active');
+  if (activeSection) {
+    activeSection.classList.remove('active');
+  }
   targetSection.classList.add('active');
 
-  // Sync navbar active indicator across ALL matching navigational items (desktop + footer)
-  const navItems = document.querySelectorAll('[data-page]');
-  navItems.forEach(item => {
-    if (item.getAttribute('data-page') === cleanHash) {
-      item.classList.add('active');
-    } else {
+  // Sync navbar active indicator across matching navigational items (O(1) selectors instead of looping all)
+  const activeNavs = document.querySelectorAll('[data-page].active');
+  activeNavs.forEach(item => {
+    if (item.getAttribute('data-page') !== cleanHash) {
       item.classList.remove('active');
     }
   });
 
-  // Smooth scroll to top of viewport
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+  const targetNavs = document.querySelectorAll(`[data-page="${cleanHash}"]`);
+  targetNavs.forEach(item => {
+    item.classList.add('active');
+  });
+
+  // Smooth scroll to top of viewport deferred to next frame to completely prevent INP main-thread blocking
+  requestAnimationFrame(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 }
 
@@ -435,8 +449,11 @@ document.body.addEventListener('click', function (e) {
   if (!anchor) return;
   e.preventDefault();
   const href = anchor.getAttribute('href');
-  window.location.hash = href;
-  navigateToSection(href);
+  if (window.location.hash === href) {
+    navigateToSection(href);
+  } else {
+    window.location.hash = href;
+  }
 });
 
 // Hashchange Event listener for SPA routing
